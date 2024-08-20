@@ -17,6 +17,16 @@ version = mod_version
 group = mod_group_id
 
 repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                url "https://cursemaven.com"
+            }
+        }
+        filter {
+            includeGroup "curse.maven"
+        }
+    }
     mavenLocal()
 }
 
@@ -123,7 +133,16 @@ dependencies {
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
+    implementation "curse.maven:farmers-delight-398521:5566383"
 
+    if (System.getProperty("idea.active")) {
+        implementation("cn.ussshenzhou:t88:0.+")
+        annotationProcessor("cn.ussshenzhou:t88:0.+")
+    } else {
+        def t88FileId = '5618199'
+        implementation 'curse.maven:t88-663112:' + t88FileId
+        annotationProcessor 'curse.maven:t88-663112:' + t88FileId
+    }
     // Example mod dependency using a file as dependency
     // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
 
