@@ -1,5 +1,7 @@
 package cn.ussshenzhou.anomalydelight;
 
+import cn.ussshenzhou.anomalydelight.item.ModItems;
+import cn.ussshenzhou.anomalydelight.ui.ModTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -42,6 +44,7 @@ public class AnomalyDelight {
     public static final String MODID = "anomaly_delight";
 
     public AnomalyDelight(IEventBus modEventBus, ModContainer modContainer) {
-
+        ModItems.ITEMS.register(modEventBus);
+        ModTabs.CREATIVE_TABS.register(modEventBus);
     }
 }
