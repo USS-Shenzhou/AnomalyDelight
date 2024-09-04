@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AnomalyDelight.MODID);
 
-    public static final DeferredItem<Item> MAFISH = ITEMS.register("mafish.json",()->
+    public static final DeferredItem<Item> MAFISH = ITEMS.register("mafish",()->
             new Item(new Item.Properties().stacksTo(1).fireResistant().food(ModFoods.Mafish)));
 
     public static DeferredItem<Item> registerItem(String name, Supplier<Item> itemSupplier){
