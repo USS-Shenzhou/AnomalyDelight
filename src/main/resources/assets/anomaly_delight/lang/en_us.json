@@ -1,4 +1,6 @@
 {
   "itemGroup.anomaly_delight": "Anomaly Delight",
-  "item.anomaly_delight.mafish": "Mafish"
+  "item.anomaly_delight.mafish": "Mafish",
+  "item.anomaly_delight.hot_dragon_egg": "hot_dragon_egg",
+  "item.anomaly_delight.cooked_dragon_egg": "cooked_dragon_egg"
 }

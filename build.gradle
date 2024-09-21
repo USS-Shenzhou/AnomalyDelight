@@ -136,9 +136,9 @@ dependencies {
     implementation "curse.maven:farmers-delight-398521:5566383"
 
 
-        def t88FileId = '5618199'
-        implementation 'curse.maven:t88-663112:' + t88FileId
-        annotationProcessor 'curse.maven:t88-663112:' + t88FileId
+//        def t88FileId = '5618199'
+//        implementation 'curse.maven:t88-663112:' + t88FileId
+//        annotationProcessor 'curse.maven:t88-663112:' + t88FileId
 
 
     // Example mod dependency using a file as dependency
