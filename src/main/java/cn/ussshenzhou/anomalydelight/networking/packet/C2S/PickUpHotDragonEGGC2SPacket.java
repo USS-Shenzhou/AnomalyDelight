@@ -30,6 +30,7 @@ public class PickUpHotDragonEGGC2SPacket implements CustomPacketPayload {
     public static final Type<PickUpHotDragonEGGC2SPacket> TYPE = new Type<PickUpHotDragonEGGC2SPacket>(ResourceLocation.fromNamespaceAndPath(AnomalyDelight.MODID,"pick_up_hot_dragon_egg"));
     public static final StreamCodec<FriendlyByteBuf, PickUpHotDragonEGGC2SPacket> STREAM_CODEC =
             CustomPacketPayload.codec(PickUpHotDragonEGGC2SPacket::write, PickUpHotDragonEGGC2SPacket::new);
+
     private void write(FriendlyByteBuf buf) {
         buf.writeUUID(playeruuid);
         buf.writeInt(itementityid);
