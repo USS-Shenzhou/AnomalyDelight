@@ -7,13 +7,18 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
+/**
+ * @author mafuyu33
+ */
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AnomalyDelight.MODID);
 
-    public static final DeferredItem<Item> MAFISH = ITEMS.register("mafish",()->
-            new Item(new Item.Properties().stacksTo(1).fireResistant().food(ModFoods.Mafish)));
-
-    public static DeferredItem<Item> registerItem(String name, Supplier<Item> itemSupplier){
-        return ITEMS.register(name,itemSupplier);
-    }
+    public static final DeferredItem<Item> MAFISH = ITEMS.register("mafish",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(1)
+                            .fireResistant()
+                            .food(ModFoodProperties.MAFISH)
+            )
+    );
 }

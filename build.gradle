@@ -17,17 +17,17 @@ version = mod_version
 group = mod_group_id
 
 repositories {
-    exclusiveContent {
-        forRepository {
-            maven {
-                url "https://cursemaven.com"
-            }
-        }
-        filter {
+    maven {
+        url "https://cursemaven.com"
+        content {
             includeGroup "curse.maven"
         }
     }
+    mavenCentral()
     mavenLocal()
+    flatDir {
+        dir 'libs'
+    }
 }
 
 base {
@@ -135,15 +135,28 @@ dependencies {
     // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
     implementation "curse.maven:farmers-delight-398521:5566383"
 
-
-        def t88FileId = '5618199'
-        implementation 'curse.maven:t88-663112:' + t88FileId
-        annotationProcessor 'curse.maven:t88-663112:' + t88FileId
+    def t88FileId = '5745052'
+    implementation('curse.maven:t88-663112:' + t88FileId) {
+        exclude group: "curse.maven", module: "irisshaders-455508"
+        exclude group: "org.sinytra.forgified-fabric-api", module: "fabric-renderer-api-v1"
+        exclude group: "org.sinytra.forgified-fabric-api", module: "fabric-api-base"
+        exclude group: "org.sinytra.forgified-fabric-api", module: "fabric-rendering-data-attachment-v1"
+        exclude group: "org.sinytra.forgified-fabric-api", module: "fabric-block-view-api-v2"
+    }
+    annotationProcessor('curse.maven:t88-663112:' + t88FileId) {
+        exclude group: "curse.maven", module: "irisshaders-455508"
+        exclude group: "curse.maven", module: "irisshaders-455508"
+        exclude group: "org.sinytra.forgified-fabric-api", module: "fabric-renderer-api-v1"
+        exclude group: "org.sinytra.forgified-fabric-api", module: "fabric-api-base"
+        exclude group: "org.sinytra.forgified-fabric-api", module: "fabric-rendering-data-attachment-v1"
+        exclude group: "org.sinytra.forgified-fabric-api", module: "fabric-block-view-api-v2"
+    }
 
 
     // Example mod dependency using a file as dependency
     // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
-
+    implementation files("libs/sodium-neoforge-0.6.0-beta.1+mc1.21.jar")
+    implementation "curse.maven:irisshaders-455508:5663587"
     // Example project dependency using a sister or child project:
     // implementation project(":myproject")
 
