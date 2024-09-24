@@ -18,7 +18,7 @@ public class ModTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ANOMALY_DELIGHT =
             AD_CREATIVE_TABS.register("anomaly_delight",
                     () -> CreativeModeTab.builder()
-                            .title(Component.translatable("itemGroup.anomaly_delight"))
+                            .title(Component.translatable("itemGroup.ad"))
                             .icon(() -> ModItems.MAFISH.get().getDefaultInstance())
                             .displayItems((itemDisplayParameters, output) -> output.accept(ModItems.MAFISH.get())).build());
 }

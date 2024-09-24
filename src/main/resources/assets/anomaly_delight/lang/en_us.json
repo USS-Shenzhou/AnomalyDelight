@@ -1,4 +1,7 @@
 {
-  "itemGroup.anomaly_delight": "Anomaly Delight",
-  "item.anomaly_delight.mafish": "Mafish"
+  "itemGroup.ad": "Anomaly Delight",
+  "item.ad.mafish": "Mafish",
+
+  "advancements.ad.tad": "试试就逝世",
+  "advancements.ad.tad.desc": "食用一道异常乐事菜肴"
 }
