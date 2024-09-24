@@ -38,7 +38,8 @@ public class ItemRendererMixin {
             EnderDragon enderDragon = new EnderDragon(EntityType.ENDER_DRAGON, mc.level);
             poseStack.pushPose();
 
-            poseStack.scale(0.1F, 0.1F, 0.1F);// 调整缩放比例
+            // 调整缩放比例
+            poseStack.scale(0.1F, 0.1F, 0.1F);
             mc.getEntityRenderDispatcher().render(enderDragon, 0, 0, 0, 180.0F, 1.0F, poseStack, bufferSource, combinedLight);
             poseStack.popPose();
         }
@@ -52,7 +53,8 @@ public class ItemRendererMixin {
             EnderDragon enderDragon = new EnderDragon(EntityType.ENDER_DRAGON, mc.level);
             poseStack.pushPose();
 
-            poseStack.scale(0.1F, 0.1F, 0.1F);// 调整缩放比例
+            // 调整缩放比例
+            poseStack.scale(0.1F, 0.1F, 0.1F);
             mc.getEntityRenderDispatcher().render(enderDragon, 0, 0, 0, 0.0F, 1.0F, poseStack, bufferSource, combinedLight);
             poseStack.popPose();
         }
