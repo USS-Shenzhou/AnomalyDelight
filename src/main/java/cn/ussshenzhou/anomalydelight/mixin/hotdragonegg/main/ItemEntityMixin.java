@@ -17,6 +17,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * @author Mafuyu33
+ */
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin extends Entity implements TraceableEntity {
     public ItemEntityMixin(EntityType<?> entityType, Level level) {
@@ -48,14 +51,16 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
                     Vec3 direction = new Vec3(x, 0.0, z);
                     double horizontalSpeed = 0.4f;
                     Vec3 finalVelocity = new Vec3(direction.x * horizontalSpeed, 0.4, direction.z * horizontalSpeed);
-                    this.setDeltaMovement(finalVelocity); // 使用 setDeltaMovement 而不是 addDeltaMovement
-                    anomalyDelight$hasMoved = true; // 标记已经施加过速度
+                    this.setDeltaMovement(finalVelocity);
+                    // 标记已经施加过速度
+                    anomalyDelight$hasMoved = true;
 
                     // 同步客户端的运动矢量
                     PacketDistributor.sendToAllPlayers(new HotDragonEGGRandomMoveS2CPacket(this.getId(), finalVelocity));
                 }
                 if (!this.onGround()) {
-                    anomalyDelight$hasMoved = false; // 当物体在空中时，重置标志
+                    // 当物体在空中时，重置标志
+                    anomalyDelight$hasMoved = false;
                 }
             }
         }

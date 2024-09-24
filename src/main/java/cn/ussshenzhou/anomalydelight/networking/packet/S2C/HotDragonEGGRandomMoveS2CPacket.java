@@ -10,6 +10,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
+/**
+ * @author Mafuyu33
+ */
 public class HotDragonEGGRandomMoveS2CPacket implements CustomPacketPayload {
     public static Type<HotDragonEGGRandomMoveS2CPacket> TYPE =
             new Type<HotDragonEGGRandomMoveS2CPacket>(ResourceLocation.fromNamespaceAndPath(AnomalyDelight.MODID,"hot_dragon_egg_random_move"));

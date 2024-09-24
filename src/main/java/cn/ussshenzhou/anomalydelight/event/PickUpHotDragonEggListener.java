@@ -15,10 +15,13 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
+/**
+ * @author Mafuyu33
+ */
 @EventBusSubscriber
-public class PickUpHotDragonEgg {
+public class PickUpHotDragonEggListener {
     @SubscribeEvent
-    public static void LeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
+    public static void leftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
         Player player = event.getEntity();
         Level level = player.level();
 
@@ -26,7 +29,7 @@ public class PickUpHotDragonEgg {
     }
 
     @SubscribeEvent
-    public static void RightClickEmpty(PlayerInteractEvent.RightClickEmpty event) {
+    public static void rightClickEmpty(PlayerInteractEvent.RightClickEmpty event) {
         Player player = event.getEntity();
         Level level = player.level();
 
@@ -35,20 +38,20 @@ public class PickUpHotDragonEgg {
 
     @OnlyIn(Dist.CLIENT)
     private static void pickUpHotDragonEgg(Level level, Player player) {
-        if(level.isClientSide()) {//客户端
-            // 射线检测参数：开始位置、方向、最大距离
-            Vec3 startVec = player.getEyePosition(1.0F);
-            Vec3 lookVec = player.getViewVector(1.0F); // 获取玩家视线方向
-            Vec3 endVec = startVec.add(lookVec.scale(1.5D)); // 射线检测最大范围 2.0 块
+        // 射线检测参数：开始位置、方向、最大距离
+        Vec3 startVec = player.getEyePosition(1.0F);
+        // 获取玩家视线方向
+        Vec3 lookVec = player.getViewVector(1.0F);
+        // 射线检测最大范围 2.0 块
+        Vec3 endVec = startVec.add(lookVec.scale(1.5D));
 
-            // 进行实体射线检测
-            EntityHitResult hitResult = getEntityLookingAt(player, startVec, endVec, level);
-
-            if (hitResult != null && hitResult.getEntity() instanceof ItemEntity itemEntity) {
-                // 检查实体是不是特定的掉落物
-                if (itemEntity.getItem().is(ModItems.HOT_DRAGON_EGG)) {//给服务端发包，执行逻辑
-                    PacketDistributor.sendToServer(new PickUpHotDragonEGGC2SPacket(player.getUUID(),itemEntity.getId()));
-                }
+        // 进行实体射线检测
+        EntityHitResult hitResult = getEntityLookingAt(player, startVec, endVec, level);
+        // 检查实体是不是特定的掉落物
+        if (hitResult != null && hitResult.getEntity() instanceof ItemEntity itemEntity) {
+            // 给服务端发包，执行逻辑
+            if (itemEntity.getItem().is(ModItems.HOT_DRAGON_EGG)) {
+                PacketDistributor.sendToServer(new PickUpHotDragonEGGC2SPacket(player.getUUID(),itemEntity.getId()));
             }
         }
     }
@@ -62,8 +65,10 @@ public class PickUpHotDragonEgg {
                 player,
                 startVec,
                 endVec,
-                player.getBoundingBox().expandTowards(player.getViewVector(1.0F).scale(5.0D)).inflate(1.0D), // 射线检测的包围盒，设置 5 格范围
-                entity -> !entity.isSpectator()// 忽略旁观者
+                // 射线检测的包围盒，设置 5 格范围
+                player.getBoundingBox().expandTowards(player.getViewVector(1.0F).scale(5.0D)).inflate(1.0D),
+                // 忽略旁观者
+                entity -> !entity.isSpectator()
         );
     }
 }
