@@ -1,5 +1,7 @@
 package cn.ussshenzhou.anomalydelight;
 
+import cn.ussshenzhou.anomalydelight.block.ModBlocks;
+import cn.ussshenzhou.anomalydelight.block.entity.ModBlockEntityTypes;
 import cn.ussshenzhou.anomalydelight.item.ModItems;
 import cn.ussshenzhou.anomalydelight.item.ModTabs;
 
@@ -17,5 +19,7 @@ public class AnomalyDelight {
     public AnomalyDelight(IEventBus modEventBus, ModContainer modContainer) {
         ModItems.ITEMS.register(modEventBus);
         ModTabs.AD_CREATIVE_TABS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
     }
 }
