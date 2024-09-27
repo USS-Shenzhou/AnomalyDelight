@@ -20,5 +20,6 @@ public class ModBlocks {
                     .mapColor(MapColor.METAL)
                     .strength(1, 12)
                     .sound(SoundType.LANTERN)
+                    .lightLevel(b -> 7)
     ));
 }

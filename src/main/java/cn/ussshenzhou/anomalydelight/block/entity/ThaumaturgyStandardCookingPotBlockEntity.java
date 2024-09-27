@@ -1,6 +1,6 @@
 package cn.ussshenzhou.anomalydelight.block.entity;
 
-import cn.ussshenzhou.anomalydelight.block.entity.container.ThaumaturgyStandardCookingPotMenu;
+import cn.ussshenzhou.anomalydelight.block.container.ThaumaturgyStandardCookingPotMenu;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;

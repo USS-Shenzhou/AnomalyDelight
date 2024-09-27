@@ -1,4 +1,4 @@
-package cn.ussshenzhou.anomalydelight.block.entity.container;
+package cn.ussshenzhou.anomalydelight.block.container;
 
 import cn.ussshenzhou.anomalydelight.block.ModBlocks;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -7,6 +7,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.MenuType;
 import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
 import vectorwing.farmersdelight.common.block.entity.container.CookingPotMenu;
 
@@ -48,5 +49,10 @@ public class ThaumaturgyStandardCookingPotMenu extends CookingPotMenu {
     @Override
     public boolean stillValid(Player playerIn) {
         return stillValid(this.canInteractWithCallable(), playerIn, ModBlocks.TSCP.get());
+    }
+
+    @Override
+    public MenuType<?> getType() {
+        return ModMenuTypes.THAUMATURGY_STANDARD_COOKING_POT.get();
     }
 }
