@@ -22,7 +22,7 @@ public class ThaumaturgyStandardCookingPotMenuScreen extends CookingPotScreen {
     private static final Rectangle PROGRESS_ARROW = new Rectangle(89, 25, 0, 17);
 
     public ThaumaturgyStandardCookingPotMenuScreen(CookingPotMenu screenContainer, Inventory inv, Component titleIn) {
-        super(screenContainer, inv, Component.translatable("container.ad.tscp"));
+        super(screenContainer, inv, Component.translatable("block.anomaly_delight.tscp"));
     }
 
     @Override

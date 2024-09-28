@@ -1,4 +1,46 @@
 {
   "itemGroup.ad": "异常乐事",
-  "item.ad.mafish": "Mafish"
+  "item.anomaly_delight.mafish": "Mafish",
+
+  "item.anomaly_delight.grand_library_essence_coffee": "综合图书馆精萃咖啡",
+  "item.anomaly_delight.thaumaturgic_watermelon_juice": "奇术西瓜汁",
+  "item.anomaly_delight.spring_breath_qingtuan": "春息青团",
+  "item.anomaly_delight.aged_sakura_sweet_sake": "陈酿樱花甜酒",
+  "item.anomaly_delight.starry_sky_white_flavor_railway_grilled_fish": "星空白风味铁路烤鱼",
+  "item.anomaly_delight.long_awaited_century_soup": "久送久远世纪浓汤",
+  "item.anomaly_delight.radish_cane_sea_breeze_sweet_soup": "萝卜拐海风甜汤",
+  "item.anomaly_delight.homestyle_canned_cheese_baked_rice": "家烧罐头起司焗饭",
+  "item.anomaly_delight.golden_cupcakes_with_banded_agate_chocolate": "金色纸杯蛋糕配缟玛瑙巧克力",
+  "item.anomaly_delight.shanghai_sunrise_cocktail": "上海日出鸡尾酒",
+  "item.anomaly_delight.romance_and_encounter": "浪漫与邂逅",
+  "item.anomaly_delight.yourself": "你自己",
+  "item.anomaly_delight.roasted_millennium_bug_with_binary_tree_wood": "二叉树木烤千年虫",
+  "item.anomaly_delight.fried_echo_shards_with_aged_rose_sauce": "炸回响碎片配陈酿玫瑰酱",
+  "item.anomaly_delight.wuthering_depth": "尖啸山庄",
+  "item.anomaly_delight.multidimensional_shulker_bisque": "多维潜影浓汤",
+  "item.anomaly_delight.deep_ocean_burger": "海洋深处汉堡包",
+
+  "item.anomaly_delight.spring_breath_qingtuan.desc": "那是我早已失去却试图追觅的温暖与甜蜜。",
+  "item.anomaly_delight.starry_sky_white_flavor_railway_grilled_fish.desc": "你答应过我，那么鼓起勇气，去和她交朋友吧。",
+  "item.anomaly_delight.long_awaited_century_soup.desc": "在真夏的阳光里，跨过时间而来的你和我，是否还是原来的那个人？",
+  "item.anomaly_delight.radish_cane_sea_breeze_sweet_soup.desc": "在生命的最后一天里，我们在数据的海洋里畅游余生。",
+  "item.anomaly_delight.homestyle_canned_cheese_baked_rice.desc": "如果能让我再和他们说说话，我愿意付出一切。",
+  "item.anomaly_delight.golden_cupcakes_with_banded_agate_chocolate.desc": "遗忘所爱之人，爱上并不爱的人，并在最后知晓这一切。",
+  "item.anomaly_delight.shanghai_sunrise_cocktail.desc": "人类的朝日仍会照常升起，文明将会在废墟中重建。",
+
+
+  "item.ad.restaurant.ambrose_dream_tea_house": "安布罗斯幻梦茶屋",
+  "item.ad.restaurant.ambrose_24h_fast_food_convenience_store": "安布罗斯24h速食便利店",
+  "item.ad.restaurant.ambrose_moms_cooking": "安布罗斯妈妈菜",
+  "item.ad.restaurant.ambrose_dust_and_dreams_tavern": "安布罗斯尘与梦酒馆",
+  "item.ad.restaurant.ambrose_leaf_house": "安布罗斯树叶屋",
+  "item.ad.restaurant.ambrose_data_layer_branch": "安布罗斯餐厅数据层分店",
+  "item.ad.restaurant.ambrose_data_layer_minecraft_branch": "安布罗斯数据层Minecraft分店",
+
+
+
+"advancements.ad.tad": "试试就逝世",
+  "advancements.ad.tad.desc": "食用一道异常乐事菜肴",
+
+  "block.anomaly_delight.tscp": "标准奇术烹饪皿"
 }

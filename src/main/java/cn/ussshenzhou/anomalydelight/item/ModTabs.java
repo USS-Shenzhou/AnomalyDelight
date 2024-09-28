@@ -13,13 +13,11 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import static cn.ussshenzhou.anomalydelight.AnomalyDelight.MODID;
-import static cn.ussshenzhou.anomalydelight.item.ModItems.MAFISH;
-import static cn.ussshenzhou.anomalydelight.item.ModItems.TSCP;
+import static cn.ussshenzhou.anomalydelight.item.ModItems.*;
 
 /**
  * @author mafuyu33
  */
-@EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD)
 public class ModTabs {
     public static final DeferredRegister<CreativeModeTab> AD_CREATIVE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
@@ -28,15 +26,26 @@ public class ModTabs {
             AD_CREATIVE_TABS.register("anomaly_delight",
                     () -> CreativeModeTab.builder()
                             .title(Component.translatable("itemGroup.ad"))
-                            .icon(() -> MAFISH.get().getDefaultInstance())
-                            .displayItems((itemDisplayParameters, output) -> output.accept(MAFISH.get())).build());
-
-    @SubscribeEvent
-    public static void onTabCreated(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTab() == ANOMALY_DELIGHT.get()) {
-            event.acceptAll(Stream.of(
-                    TSCP
-            ).map(s -> new ItemStack(s.get())).toList());
-        }
-    }
+                            .icon(() -> TSCP.get().getDefaultInstance())
+                            .displayItems((itemDisplayParameters, output) -> output.acceptAll(Stream.of(
+                                    TSCP,
+                                    MAFISH,
+                                    GRAND_LIBRARY_ESSENCE_COFFEE,
+                                    THAUMATURGIC_WATERMELON_JUICE,
+                                    SPRING_BREATH_QINGTUAN,
+                                    AGED_SAKURA_SWEET_SAKE,
+                                    STARRY_SKY_WHITE_FLAVOR_RAILWAY_GRILLED_FISH,
+                                    LONG_AWAITED_CENTURY_SOUP,
+                                    RADISH_CANE_SEA_BREEZE_SWEET_SOUP,
+                                    HOMESTYLE_CANNED_CHEESE_BAKED_RICE,
+                                    GOLDEN_CUPCAKES_WITH_BANDED_AGATE_CHOCOLATE,
+                                    SHANGHAI_SUNRISE_COCKTAIL,
+                                    ROMANCE_AND_ENCOUNTER,
+                                    YOURSELF,
+                                    ROASTED_MILLENNIUM_BUG_WITH_BINARY_TREE_WOOD,
+                                    FRIED_ECHO_SHARDS_WITH_AGED_ROSE_SAUCE,
+                                    WUTHERING_DEPTH,
+                                    MULTIDIMENSIONAL_SHULKER_BISQUE,
+                                    DEEP_OCEAN_BURGER
+                            ).map(s -> new ItemStack(s.get())).toList())).build());
 }
