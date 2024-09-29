@@ -42,5 +42,7 @@
   "advancements.ad.tad": "Try and Die",
   "advancements.ad.tad.desc": "Eat your first Anomaly's Delight food.",
 
-  "block.anomaly_delight.tscp": "Thaumaturgy Standard Cooking Pot"
+  "block.anomaly_delight.tscp": "Thaumaturgy Standard Cooking Pot",
+
+  "effect.anomaly_delight.random_variable_soup": "Quantum"
 }
