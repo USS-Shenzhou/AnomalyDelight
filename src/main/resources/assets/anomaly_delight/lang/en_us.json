@@ -3,4 +3,45 @@
   "item.anomaly_delight.mafish": "Mafish",
   "item.anomaly_delight.hot_dragon_egg": "hot_dragon_egg",
   "item.anomaly_delight.cooked_dragon_egg": "cooked_dragon_egg"
+  "itemGroup.ad": "Anomaly Delight",
+  "item.anomaly_delight.mafish": "Mafish",
+  "item.anomaly_delight.grand_library_essence_coffee": "Grand Library Essence Coffee",
+  "item.anomaly_delight.thaumaturgic_watermelon_juice": "Thaumaturgic Watermelon Juice",
+  "item.anomaly_delight.spring_breath_qingtuan": "Spring Breath Qingtuan",
+  "item.anomaly_delight.aged_sakura_sweet_sake": "Aged Sakura Sweet Sake",
+  "item.anomaly_delight.starry_sky_white_flavor_railway_grilled_fish": "Starry Sky White Flavor Railway Grilled Fish",
+  "item.anomaly_delight.long_awaited_century_soup": "Long-Awaited Century Soup",
+  "item.anomaly_delight.radish_cane_sea_breeze_sweet_soup": "Radish Cane Sea Breeze Sweet Soup",
+  "item.anomaly_delight.homestyle_canned_cheese_baked_rice": "Homestyle Canned Cheese Baked Rice",
+  "item.anomaly_delight.golden_cupcakes_with_banded_agate_chocolate": "Golden Cupcakes with Banded Agate Chocolate",
+  "item.anomaly_delight.shanghai_sunrise_cocktail": "Shanghai Sunrise Cocktail",
+  "item.anomaly_delight.romance_and_encounter": "Romance and Encounter Petit Cake",
+  "item.anomaly_delight.yourself": "Yourself",
+  "item.anomaly_delight.roasted_millennium_bug_with_binary_tree_wood": "Roasted Millennium Bug with Binary Tree Wood",
+  "item.anomaly_delight.fried_echo_shards_with_aged_rose_sauce": "Fried Echo Shards with Aged Rose Sauce",
+  "item.anomaly_delight.wuthering_depth": "Wuthering Depth",
+  "item.anomaly_delight.multidimensional_shulker_bisque": "Multidimensional Shulker Bisque",
+  "item.anomaly_delight.deep_ocean_burger": "Deep Ocean Burger",
+
+  "item.anomaly_delight.spring_breath_qingtuan.desc": "It is the warmth and sweetness that I have long lost but am trying to seek.",
+  "item.anomaly_delight.starry_sky_white_flavor_railway_grilled_fish.desc": "You promised me, so muster up your courage and go make friends with her.",
+  "item.anomaly_delight.long_awaited_century_soup.desc": "In the midsummer sunlight, you and I who have crossed time—are we still the same as we once were?",
+  "item.anomaly_delight.radish_cane_sea_breeze_sweet_soup.desc": "On the last day of life, we swam through the rest of our days in a sea of data.",
+  "item.anomaly_delight.homestyle_canned_cheese_baked_rice.desc": "If I could talk to them again, I would give anything.",
+  "item.anomaly_delight.golden_cupcakes_with_banded_agate_chocolate.desc": "Forgetting those you love, falling in love with someone who doesn't love you, and realizing it all in the end.",
+  "item.anomaly_delight.shanghai_sunrise_cocktail.desc": "The dawn of humanity will still rise as usual; civilization will be rebuilt upon the ruins.",
+
+  "item.ad.restaurant.ambrose_dream_tea_house": "Ambrose Dream Tea House",
+  "item.ad.restaurant.ambrose_24h_fast_food_convenience_store": "Ambrose 24h Fast Food Convenience Store",
+  "item.ad.restaurant.ambrose_moms_cooking": "Ambrose Mom's Cooking",
+  "item.ad.restaurant.ambrose_dust_and_dreams_tavern": "Ambrose Dust and Dreams Tavern",
+  "item.ad.restaurant.ambrose_leaf_house": "Ambrose Leaf House",
+  "item.ad.restaurant.ambrose_data_layer_branch": "Ambrose Data Layer Branch",
+  "item.ad.restaurant.ambrose_data_layer_minecraft_branch": "Ambrose Data Layer Minecraft Branch",
+
+  "advancements.ad.tad": "Try and Die",
+  "advancements.ad.tad.desc": "Eat your first Anomaly's Delight food.",
+
+  "block.anomaly_delight.tscp": "Thaumaturgy Standard Cooking Pot"
+
 }
