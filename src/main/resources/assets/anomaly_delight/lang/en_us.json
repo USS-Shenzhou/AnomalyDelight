@@ -1,10 +1,10 @@
 {
-  "itemGroup.anomaly_delight": "Anomaly Delight",
-  "item.anomaly_delight.mafish": "Mafish",
-  "item.anomaly_delight.hot_dragon_egg": "hot_dragon_egg",
-  "item.anomaly_delight.cooked_dragon_egg": "cooked_dragon_egg"
   "itemGroup.ad": "Anomaly Delight",
   "item.anomaly_delight.mafish": "Mafish",
+
+  "item.anomaly_delight.hot_dragon_egg": "hot_dragon_egg",
+  "item.anomaly_delight.cooked_dragon_egg": "cooked_dragon_egg",
+
   "item.anomaly_delight.grand_library_essence_coffee": "Grand Library Essence Coffee",
   "item.anomaly_delight.thaumaturgic_watermelon_juice": "Thaumaturgic Watermelon Juice",
   "item.anomaly_delight.spring_breath_qingtuan": "Spring Breath Qingtuan",
@@ -43,5 +43,4 @@
   "advancements.ad.tad.desc": "Eat your first Anomaly's Delight food.",
 
   "block.anomaly_delight.tscp": "Thaumaturgy Standard Cooking Pot"
-
 }
