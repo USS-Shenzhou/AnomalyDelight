@@ -12,8 +12,10 @@ import java.util.function.Supplier;
 
 public class ModEffects {
     public static DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, AnomalyDelight.MODID);
-
+    //量子态
     public static final DeferredHolder<MobEffect,MobEffect> RANDOM_VARIABLE_SOUP =registerDeferredHolder("random_variable_soup",()->new NormalEffect(MobEffectCategory.NEUTRAL,0xFF0000)) ;
+    //旋转
+    public static final DeferredHolder<MobEffect,MobEffect> SPIN_EFFECT =registerDeferredHolder("spin_effect",()->new NormalEffect(MobEffectCategory.HARMFUL,0xFF0000)) ;
 
 
     public static DeferredHolder<MobEffect,MobEffect> registerDeferredHolder(String name, Supplier<MobEffect> supplier){

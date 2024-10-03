@@ -35,6 +35,14 @@ public class ModItems {
             )
     );
 
+    public static final Supplier<Item> SPINNING_SUSHI = ITEMS.register("spinning_sushi",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .food(ModFoodProperties.SPINNING_SUSHI)
+            )
+    );
+
     public static final DeferredItem<Item> HOT_DRAGON_EGG = ITEMS.register("hot_dragon_egg",()->
             new Item(new Item.Properties().stacksTo(1).fireResistant()));
     public static final DeferredItem<Item> COOKED_DRAGON_EGG = ITEMS.register("cooked_dragon_egg",()->

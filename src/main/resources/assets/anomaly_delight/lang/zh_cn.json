@@ -1,9 +1,17 @@
 {
   "itemGroup.ad": "异常乐事",
   "item.anomaly_delight.mafish": "马夫鱼",
-
+  "item.anomaly_delight.spinning_sushi": "'旋转'寿司",
   "item.anomaly_delight.hot_dragon_egg": "蛋龙",
   "item.anomaly_delight.cooked_dragon_egg": "蛋白质龙",
+
+  "effect.anomaly_delight.random_variable_soup": "量子态",
+  "effect.anomaly_delight.spin_effect": "旋转",
+
+  "item.minecraft.potion.effect.spin_potion": "旋转药水",
+  "item.minecraft.splash_potion.effect.spin_potion": "旋转药水（喷溅）",
+  "item.minecraft.lingering_potion.effect.spin_potion": "旋转药水（滞留）",
+  "item.minecraft.tipped_arrow.effect.spin_potion": "旋转箭",
 
   "item.anomaly_delight.grand_library_essence_coffee": "综合图书馆精萃咖啡",
   "item.anomaly_delight.thaumaturgic_watermelon_juice": "奇术西瓜汁",
@@ -45,7 +53,5 @@
   "advancements.ad.tad": "试试就逝世",
   "advancements.ad.tad.desc": "食用一道异常乐事菜肴",
 
-  "block.anomaly_delight.tscp": "标准奇术烹饪皿",
-
-  "effect.anomaly_delight.random_variable_soup": "量子态"
+  "block.anomaly_delight.tscp": "标准奇术烹饪皿"
 }

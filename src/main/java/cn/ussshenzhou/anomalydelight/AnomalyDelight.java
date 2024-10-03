@@ -7,6 +7,7 @@ import cn.ussshenzhou.anomalydelight.effect.ModEffects;
 import cn.ussshenzhou.anomalydelight.item.ModItems;
 import cn.ussshenzhou.anomalydelight.item.ModTabs;
 
+import cn.ussshenzhou.anomalydelight.potion.ModPotions;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -25,5 +26,6 @@ public class AnomalyDelight {
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
         ModMenuTypes.MENU_TYPES.register(modEventBus);
         ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
     }
 }
