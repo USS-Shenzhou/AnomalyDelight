@@ -83,7 +83,7 @@ neoForge {
             // gameDirectory = project.file('run-data')
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            programArguments.addAll '--mod', project.mod_id, '--mod', 'farmersdelight', '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
         }
 
         // applies to all the run configs above
@@ -137,7 +137,7 @@ dependencies {
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
     //TODO update to 1.2.5 to be able to use datagen
-    implementation "maven.modrinth:farmers-delight:1.21-1.2.4"
+    implementation "curse.maven:farmers-delight-398521:5772720"
 
     def t88FileId = '5745052'
     implementation('curse.maven:t88-663112:' + t88FileId) {
@@ -159,8 +159,10 @@ dependencies {
 
     // Example mod dependency using a file as dependency
     // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
-    implementation files("libs/sodium-neoforge-0.6.0-beta.1+mc1.21.jar")
-    implementation "curse.maven:irisshaders-455508:5663587"
+
+    //implementation files("libs/sodium-neoforge-0.6.0-beta.1+mc1.21.jar")
+    //implementation "curse.maven:irisshaders-455508:5663587"
+
     // Example project dependency using a sister or child project:
     // implementation project(":myproject")
 
