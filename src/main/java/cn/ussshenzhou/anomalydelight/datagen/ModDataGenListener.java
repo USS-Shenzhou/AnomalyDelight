@@ -22,5 +22,6 @@ public class ModDataGenListener {
         var existingFileHelper = event.getExistingFileHelper();
 
         generator.addProvider(event.includeServer(), new AdvancementProvider(output, lookupProvider, existingFileHelper, List.of(new ModAdvancementGenerator())));
+        generator.addProvider(event.includeServer(), new ThaumaturgyStandardCookingPotRecipeGenerator(output, lookupProvider));
     }
 }
