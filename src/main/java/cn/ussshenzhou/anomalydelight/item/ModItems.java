@@ -24,6 +24,28 @@ public class ModItems {
             )
     );
 
+    public static final Supplier<Item> HASOKFISH = ITEMS.register("hasokfish",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .fireResistant()
+            )
+    );
+
+    public static final Supplier<Item> COOKED_HASOKFISH = ITEMS.register("cooked_hasokfish",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .fireResistant()
+            )
+    );public static final Supplier<Item> HASOKFISH_SANDWICH = ITEMS.register("hasokfish_sandwich",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(16)
+                            .fireResistant()
+            )
+    );
+
     public static final Supplier<Item> TSCP = ITEMS.register("tscp",
             () -> new ThaumaturgyStandardCookingPotBlockItem(ModBlocks.TSCP.get(), new Item.Properties()
                     .stacksTo(1)
