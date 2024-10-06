@@ -3,11 +3,13 @@ package cn.ussshenzhou.anomalydelight;
 import cn.ussshenzhou.anomalydelight.block.ModBlocks;
 import cn.ussshenzhou.anomalydelight.block.container.ModMenuTypes;
 import cn.ussshenzhou.anomalydelight.block.entity.ModBlockEntityTypes;
+import cn.ussshenzhou.anomalydelight.effect.ModEffects;
 import cn.ussshenzhou.anomalydelight.item.ModItems;
 import cn.ussshenzhou.anomalydelight.item.ModTabs;
 
 import cn.ussshenzhou.anomalydelight.recipe.ModRecipeSerializers;
 import cn.ussshenzhou.anomalydelight.recipe.ModRecipeTypes;
+import cn.ussshenzhou.anomalydelight.potion.ModPotions;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -27,5 +29,7 @@ public class AnomalyDelight {
         ModMenuTypes.MENU_TYPES.register(modEventBus);
         ModRecipeTypes.RECIPE_TYPES.register(modEventBus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
+        ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
     }
 }
