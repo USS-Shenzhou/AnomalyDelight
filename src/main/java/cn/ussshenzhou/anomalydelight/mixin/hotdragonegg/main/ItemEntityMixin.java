@@ -1,7 +1,7 @@
 package cn.ussshenzhou.anomalydelight.mixin.hotdragonegg.main;
 
 import cn.ussshenzhou.anomalydelight.item.ModItems;
-import cn.ussshenzhou.anomalydelight.networking.packet.S2C.HotDragonEGGRandomMoveS2CPacket;
+import cn.ussshenzhou.anomalydelight.networking.packet.S2C.HotDragonEggRandomMoveS2CPacket;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.TraceableEntity;
@@ -20,6 +20,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 /**
  * @author Mafuyu33
  */
+
+//TODO 继承一个ItemEntity然后overridetick方法、然后改掉HOT_DRAGON_EGG对应的生成
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin extends Entity implements TraceableEntity {
     public ItemEntityMixin(EntityType<?> entityType, Level level) {
@@ -56,7 +58,7 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
                     anomalyDelight$hasMoved = true;
 
                     // 同步客户端的运动矢量
-                    PacketDistributor.sendToAllPlayers(new HotDragonEGGRandomMoveS2CPacket(this.getId(), finalVelocity));
+                    PacketDistributor.sendToAllPlayers(new HotDragonEggRandomMoveS2CPacket(this.getId(), finalVelocity));
                 }
                 if (!this.onGround()) {
                     // 当物体在空中时，重置标志

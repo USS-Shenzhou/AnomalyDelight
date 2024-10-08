@@ -55,6 +55,8 @@ public class RandomTriggerManager {
         public record RandomActionEntry(RandomAction action, int weight) {
     }
 
+    //TODO 列表白名单。
+
     // 创建一个列表，存储所有的随机动作及其权重
     private static final List<RandomActionEntry> ACTIONS = new ArrayList<>();
 

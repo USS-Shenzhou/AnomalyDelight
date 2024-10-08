@@ -2,7 +2,7 @@ package cn.ussshenzhou.anomalydelight.networking.packet;
 
 import cn.ussshenzhou.anomalydelight.AnomalyDelight;
 import cn.ussshenzhou.anomalydelight.networking.packet.C2S.PickUpHotDragonEGGC2SPacket;
-import cn.ussshenzhou.anomalydelight.networking.packet.S2C.HotDragonEGGRandomMoveS2CPacket;
+import cn.ussshenzhou.anomalydelight.networking.packet.S2C.HotDragonEggRandomMoveS2CPacket;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -16,10 +16,10 @@ public class ModMessage {
         final PayloadRegistrar registrar = event.registrar(AnomalyDelight.MODID);
 
         registrar.playBidirectional(
-                HotDragonEGGRandomMoveS2CPacket.TYPE,
-                HotDragonEGGRandomMoveS2CPacket.STREAM_CODEC,
+                HotDragonEggRandomMoveS2CPacket.TYPE,
+                HotDragonEggRandomMoveS2CPacket.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(
-                        HotDragonEGGRandomMoveS2CPacket::handle,
+                        HotDragonEggRandomMoveS2CPacket::handle,
                         null
                 )
         );

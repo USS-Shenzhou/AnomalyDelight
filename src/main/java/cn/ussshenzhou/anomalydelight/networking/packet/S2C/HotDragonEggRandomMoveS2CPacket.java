@@ -13,22 +13,22 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 /**
  * @author Mafuyu33
  */
-public class HotDragonEGGRandomMoveS2CPacket implements CustomPacketPayload {
-    public static Type<HotDragonEGGRandomMoveS2CPacket> TYPE =
-            new Type<HotDragonEGGRandomMoveS2CPacket>(ResourceLocation.fromNamespaceAndPath(AnomalyDelight.MODID,"hot_dragon_egg_random_move"));
+public class HotDragonEggRandomMoveS2CPacket implements CustomPacketPayload {
+    public static Type<HotDragonEggRandomMoveS2CPacket> TYPE =
+            new Type<HotDragonEggRandomMoveS2CPacket>(ResourceLocation.fromNamespaceAndPath(AnomalyDelight.MODID,"hot_dragon_egg_random_move"));
 
     // stream codec
-    public static final StreamCodec<FriendlyByteBuf, HotDragonEGGRandomMoveS2CPacket> STREAM_CODEC =
-            CustomPacketPayload.codec(HotDragonEGGRandomMoveS2CPacket::write, HotDragonEGGRandomMoveS2CPacket::new);
+    public static final StreamCodec<FriendlyByteBuf, HotDragonEggRandomMoveS2CPacket> STREAM_CODEC =
+            CustomPacketPayload.codec(HotDragonEggRandomMoveS2CPacket::write, HotDragonEggRandomMoveS2CPacket::new);
     public Vec3 finalVelocity;
     public int id;
 
-    public HotDragonEGGRandomMoveS2CPacket(int id, Vec3 finalVelocity){
+    public HotDragonEggRandomMoveS2CPacket(int id, Vec3 finalVelocity){
         this.id=id;
         this.finalVelocity=finalVelocity;
     }
 
-    public HotDragonEGGRandomMoveS2CPacket(FriendlyByteBuf buf){
+    public HotDragonEggRandomMoveS2CPacket(FriendlyByteBuf buf){
         this.id=buf.readInt();
         this.finalVelocity=buf.readVec3();
     }
@@ -37,7 +37,7 @@ public class HotDragonEGGRandomMoveS2CPacket implements CustomPacketPayload {
         pBuffer.writeInt(this.id);
         pBuffer.writeVec3(this.finalVelocity);
     }
-    public static void handle(HotDragonEGGRandomMoveS2CPacket data, IPayloadContext context){
+    public static void handle(HotDragonEggRandomMoveS2CPacket data, IPayloadContext context){
 
         context.enqueueWork(()->{
             if(data.id!=-1 && Minecraft.getInstance().level!=null) {

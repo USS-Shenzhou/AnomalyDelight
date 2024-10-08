@@ -20,6 +20,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemRenderer.class)
+
+//TODO 渲染换成奇术西瓜汁
 public class ItemRendererMixin {
 
     //之后有贴图可替换渲染。
