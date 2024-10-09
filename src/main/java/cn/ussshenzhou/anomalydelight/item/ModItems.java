@@ -3,10 +3,23 @@ package cn.ussshenzhou.anomalydelight.item;
 import cn.ussshenzhou.anomalydelight.AnomalyDelight;
 import cn.ussshenzhou.anomalydelight.block.ModBlocks;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.levelgen.structure.structures.StrongholdPieces;
+import net.minecraft.world.level.levelgen.structure.structures.StrongholdStructure;
+import net.neoforged.neoforge.common.EffectCures;
+import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.function.Supplier;
 
 /**
@@ -38,7 +51,8 @@ public class ModItems {
                             .stacksTo(64)
                             .fireResistant()
             )
-    );public static final Supplier<Item> HASOKFISH_SANDWICH = ITEMS.register("hasokfish_sandwich",
+    );
+    public static final Supplier<Item> HASOKFISH_SANDWICH = ITEMS.register("hasokfish_sandwich",
             () -> new Item(
                     new Item.Properties()
                             .stacksTo(16)
@@ -60,7 +74,26 @@ public class ModItems {
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_dream_tea_house")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xcc66ff)
+                            .withColor(0xcc66ff),
+                    entity -> {
+                        var level = (ServerLevel) entity.getLevel();
+                        if (level == null) {
+                            return false;
+                        }
+                        var structures = level.structureManager().startsForStructure(new ChunkPos(entity.getBlockPos()), structure -> structure instanceof StrongholdStructure);
+                        if (structures.isEmpty()) {
+                            return false;
+                        }
+                        for (var structure : structures) {
+                            var libraries = structure.getPieces().stream().filter(structurePiece -> structurePiece instanceof StrongholdPieces.Library).toList();
+                            for (var library : libraries) {
+                                if (library.getBoundingBox().isInside(entity.getBlockPos())) {
+                                    return true;
+                                }
+                            }
+                        }
+                        return false;
+                    }
             )
     );
 
@@ -72,7 +105,13 @@ public class ModItems {
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_24h_fast_food_convenience_store")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0x66ccff)
+                            .withColor(0x66ccff),
+                    null,
+                    eater -> {
+                        eater.heal(4);
+                        var toRemove = eater.getActiveEffects().stream().filter(e -> e.getEffect().value().getCategory() == MobEffectCategory.HARMFUL).toList();
+                        toRemove.forEach(e -> eater.removeEffect(e.getEffect()));
+                    }
             )
     );
 
@@ -98,7 +137,12 @@ public class ModItems {
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_moms_cooking")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xffcc99)
+                            .withColor(0xffcc99),
+                    null,
+                    eater -> {
+                        var toRemove = eater.getActiveEffects().stream().filter(e -> e.getEffect().value().getCategory() == MobEffectCategory.HARMFUL).toList();
+                        toRemove.forEach(e -> eater.removeEffect(e.getEffect()));
+                    }
             )
     );
 
@@ -140,7 +184,8 @@ public class ModItems {
                             .withColor(0xaaaaaa),
                     Component.translatable("item.ad.restaurant.ambrose_dust_and_dreams_tavern")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xf4b084)
+                            .withColor(0xf4b084),
+                    entity -> entity.getLevel() != null && entity.getLevel().getBiome(entity.getBlockPos()) == Biomes.BEACH
             )
     );
 
@@ -154,7 +199,12 @@ public class ModItems {
                             .withColor(0xaaaaaa),
                     Component.translatable("item.ad.restaurant.ambrose_dust_and_dreams_tavern")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xf4b084)
+                            .withColor(0xf4b084),
+                    null,
+                    eater -> {
+                        var toRemove = eater.getActiveEffects().stream().filter(e -> e.getEffect().value().getCategory() == MobEffectCategory.HARMFUL).toList();
+                        toRemove.forEach(e -> eater.removeEffect(e.getEffect()));
+                    }
             )
     );
 
@@ -230,7 +280,7 @@ public class ModItems {
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_data_layer_minecraft_branch")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0x000099)
+                            .withColor(0xff2e3b)
             )
     );
 
