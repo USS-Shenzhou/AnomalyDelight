@@ -1,6 +1,7 @@
 package cn.ussshenzhou.anomalydelight.datagen;
 
 import cn.ussshenzhou.anomalydelight.AnomalyDelight;
+import cn.ussshenzhou.anomalydelight.item.ModItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementRequirements;
@@ -30,8 +31,7 @@ public class ModAdvancementGenerator implements AdvancementProvider.AdvancementG
 
         var root = Advancement.Builder.advancement()
                 .display(
-                        //TODO
-                        Items.BARRIER,
+                        ModItems.TSCP.get(),
                         Component.translatable("advancements.ad.tad"),
                         Component.translatable("advancements.ad.tad.desc"),
                         null, AdvancementType.TASK, true, true, false
@@ -48,5 +48,49 @@ public class ModAdvancementGenerator implements AdvancementProvider.AdvancementG
                         )
                 )
                 .save(saver, ResourceLocation.fromNamespaceAndPath(AnomalyDelight.MODID, "try_and_die"), existingFileHelper);
+
+        var coldStart = Advancement.Builder.advancement()
+                .display(
+                        ModItems.SHANGHAI_SUNRISE_COCKTAIL.get(),
+                        Component.translatable("advancements.ad.cs")
+                                .withColor(0xf4b084),
+                        Component.translatable("advancements.ad.cs.desc"),
+                        null, AdvancementType.TASK, true, true, false
+                )
+                .parent(root)
+                .requirements(AdvancementRequirements.Strategy.OR)
+                .addCriterion("eat",
+                        ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item()
+                                .of(
+                                        ModItems.STARRY_SKY_WHITE_FLAVOR_RAILWAY_GRILLED_FISH.get(),
+                                        ModItems.LONG_AWAITED_CENTURY_SOUP.get(),
+                                        ModItems.RADISH_CANE_SEA_BREEZE_SWEET_SOUP.get(),
+                                        ModItems.HOMESTYLE_CANNED_CHEESE_BAKED_RICE.get(),
+                                        ModItems.GOLDEN_CUPCAKES_WITH_BANDED_AGATE_CHOCOLATE.get(),
+                                        ModItems.SHANGHAI_SUNRISE_COCKTAIL.get()
+                                )
+                        )
+                )
+                .save(saver, ResourceLocation.fromNamespaceAndPath(AnomalyDelight.MODID, "cold_start"), existingFileHelper);
+
+        var welcomeToJupiterDomain = Advancement.Builder.advancement()
+                .display(
+                        ModItems.ROASTED_MILLENNIUM_BUG_WITH_BINARY_TREE_WOOD.get(),
+                        Component.translatable("advancements.ad.cs")
+                                .withColor(0x000099),
+                        Component.translatable("advancements.ad.cs.desc"),
+                        null, AdvancementType.TASK, true, true, false
+                )
+                .parent(root)
+                .requirements(AdvancementRequirements.Strategy.OR)
+                .addCriterion("eat",
+                        ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item()
+                                .of(
+                                        ModItems.YOURSELF.get(),
+                                        ModItems.ROASTED_MILLENNIUM_BUG_WITH_BINARY_TREE_WOOD.get()
+                                )
+                        )
+                )
+                .save(saver, ResourceLocation.fromNamespaceAndPath(AnomalyDelight.MODID, "welcome_to_jupiter_domain"), existingFileHelper);
     }
 }

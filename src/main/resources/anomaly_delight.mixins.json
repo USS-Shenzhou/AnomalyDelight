@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_21",
   "refmap": "anomaly_delight.refmap.json",
   "mixins": [
+    "EnchantmentMenuMixin",
+    "WardenMixin"
   ],
   "client": [
   ],

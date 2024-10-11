@@ -36,10 +36,16 @@
   "item.ad.restaurant.ambrose_dust_and_dreams_tavern": "Ambrose Dust and Dreams Tavern",
   "item.ad.restaurant.ambrose_leaf_house": "Ambrose Leaf House",
   "item.ad.restaurant.ambrose_data_layer_branch": "Ambrose Data Layer Branch",
-  "item.ad.restaurant.ambrose_data_layer_minecraft_branch": "Ambrose Data Layer Minecraft Branch",
+  "item.ad.restaurant.shenzhou": "Ambrose U.S.S. Shenzhou Bar",
+  "item.ad.restaurant.mafuyu": "Ambrose Data Layer Mafuyu Branch",
+  "item.ad.restaurant.hasoook": "Ambrose Data Layer Hasoook Branch",
 
   "advancements.ad.tad": "Try and Die",
   "advancements.ad.tad.desc": "Eat your first Anomaly's Delight food.",
+  "advancements.ad.cs": "Cold Start",
+  "advancements.ad.cs.desc": "Eat your first Ambrose Dust and Dreams Tavern food.",
+  "advancements.ad.data": "Welcome to Jupiter Domain!",
+  "advancements.ad.data.desc": "Eat your first Data Layer Branch food.",
 
   "block.anomaly_delight.tscp": "Thaumaturgy Standard Cooking Pot"
 

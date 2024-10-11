@@ -38,12 +38,18 @@
   "item.ad.restaurant.ambrose_dust_and_dreams_tavern": "安布罗斯尘与梦酒馆",
   "item.ad.restaurant.ambrose_leaf_house": "安布罗斯树叶屋",
   "item.ad.restaurant.ambrose_data_layer_branch": "安布罗斯餐厅数据层分店",
-  "item.ad.restaurant.ambrose_data_layer_minecraft_branch": "安布罗斯数据层Minecraft分店",
+  "item.ad.restaurant.shenzhou": "安布罗斯联邦星舰神舟号食堂",
+  "item.ad.restaurant.mafuyu": "安布罗斯数据层马夫鱼分店",
+  "item.ad.restaurant.hasoook": "安布罗斯数据层Hasoook分店",
 
 
 
-"advancements.ad.tad": "试试就逝世",
+  "advancements.ad.tad": "试试就逝世",
   "advancements.ad.tad.desc": "食用一道异常乐事菜肴",
+  "advancements.ad.cs": "冷启动",
+  "advancements.ad.cs.desc": "食用一道安布罗斯尘与梦酒馆菜肴",
+  "advancements.ad.data": "欢迎来到木星域！",
+  "advancements.ad.data.desc": "食用一道安布罗斯数据层分店菜肴",
 
   "block.anomaly_delight.tscp": "标准奇术烹饪皿"
 }
