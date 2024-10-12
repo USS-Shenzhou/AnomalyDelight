@@ -15,7 +15,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModPotions {
     public static DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, AnomalyDelight.MODID);
 
-    public static Holder<Potion> SPIN_POTION = registerPotion("spin_potion",480,0, ModEffects.SPIN_EFFECT);
+    public static Holder<Potion> SPIN_POTION = registerPotion("spin_potion",480,0, (Holder<MobEffect>)ModEffects.SPIN_EFFECT);
 
     public static void register(IEventBus eventBus){
         POTIONS.register(eventBus);

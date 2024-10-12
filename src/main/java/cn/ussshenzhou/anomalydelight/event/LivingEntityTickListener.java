@@ -1,6 +1,8 @@
 package cn.ussshenzhou.anomalydelight.event;
 
 import cn.ussshenzhou.anomalydelight.effect.ModEffects;
+import net.minecraft.core.Holder;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
@@ -20,7 +22,7 @@ public class LivingEntityTickListener {
         Entity entity = event.getEntity();
         Level level = entity.level();
 
-        if (entity instanceof LivingEntity livingEntity && livingEntity.hasEffect(ModEffects.SPIN_EFFECT)) {
+        if (entity instanceof LivingEntity livingEntity && livingEntity.hasEffect((Holder<MobEffect>)ModEffects.SPIN_EFFECT)) {
             // 获取当前的 Yaw 角度
             float currentYaw = livingEntity.getYRot();
             // 目标 Yaw 角度，每 tick 增加一定的旋转速度

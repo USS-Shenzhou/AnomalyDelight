@@ -1,6 +1,8 @@
 package cn.ussshenzhou.anomalydelight.item;
 
 import cn.ussshenzhou.anomalydelight.effect.ModEffects;
+import net.minecraft.core.Holder;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -13,14 +15,14 @@ public class ModFoodProperties {
             .nutrition(4)
             .saturationModifier(0.3f)
             .alwaysEdible()
-            .effect(() -> new MobEffectInstance(ModEffects.RANDOM_VARIABLE_SOUP, 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance((Holder<MobEffect>)ModEffects.RANDOM_VARIABLE_SOUP, 6000, 0), 1.0F)
             .build();
 
     public static final FoodProperties SPINNING_SUSHI = new FoodProperties.Builder()
             .nutrition(2)
             .saturationModifier(0.1f)
             .alwaysEdible()
-            .effect(() -> new MobEffectInstance(ModEffects.SPIN_EFFECT, 200, 0), 0.5F)
+            .effect(() -> new MobEffectInstance((Holder<MobEffect>)ModEffects.SPIN_EFFECT, 200, 0), 0.5F)
             .build();
 
     public static final FoodProperties COOKED_DRAGON_EGG = new FoodProperties.Builder()

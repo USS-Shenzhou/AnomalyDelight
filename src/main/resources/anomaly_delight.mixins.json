@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "refmap": "anomaly_delight.refmap.json",
   "mixins": [
-    "hotdragonegg.main.ItemEntityMixin"
+    "hotdragonegg.main.ItemEntityMixin",
     "EnchantmentMenuMixin",
     "WardenMixin"
   ],

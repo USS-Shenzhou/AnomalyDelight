@@ -30,12 +30,6 @@ import java.util.function.Supplier;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AnomalyDelight.MODID);
 
-    public static final Supplier<Item> TSCP = ITEMS.register("tscp",
-            () -> new ThaumaturgyStandardCookingPotBlockItem(ModBlocks.TSCP.get(), new Item.Properties()
-                    .stacksTo(1)
-            )
-    );
-
     public static DeferredItem<Item> registerItem(String name, Supplier<Item> itemSupplier){
         return ITEMS.register(name,itemSupplier);
     }
