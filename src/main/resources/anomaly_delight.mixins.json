@@ -5,10 +5,12 @@
   "compatibilityLevel": "JAVA_21",
   "refmap": "anomaly_delight.refmap.json",
   "mixins": [
+    "hotdragonegg.main.ItemEntityMixin",
     "EnchantmentMenuMixin",
     "WardenMixin"
   ],
   "client": [
+    "hotdragonegg.renderer.ItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

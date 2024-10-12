@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -33,6 +34,7 @@ public class ModTabs {
                                     HASOKFISH,
                                     COOKED_HASOKFISH,
                                     HASOKFISH_SANDWICH,
+                                    SPINNING_SUSHI,
                                     GRAND_LIBRARY_ESSENCE_COFFEE,
                                     THAUMATURGIC_WATERMELON_JUICE,
                                     SPRING_BREATH_QINGTUAN,
