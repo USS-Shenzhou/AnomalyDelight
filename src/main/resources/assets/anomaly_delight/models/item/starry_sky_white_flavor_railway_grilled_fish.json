@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "anomaly_delight:item/starry_sky_white_flavor_railway_grilled_fish"
+  }
+}

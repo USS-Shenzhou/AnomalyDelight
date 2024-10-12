@@ -29,7 +29,7 @@ public class AnomalyDelight {
         ModMenuTypes.MENU_TYPES.register(modEventBus);
         ModRecipeTypes.RECIPE_TYPES.register(modEventBus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
-        ModEffects.register(modEventBus);
-        ModPotions.register(modEventBus);
+        ModEffects.EFFECTS.register(modEventBus);
+        ModPotions.POTIONS.register(modEventBus);
     }
 }

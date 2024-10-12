@@ -30,6 +30,9 @@
   "item.anomaly_delight.wuthering_depth": "尖啸山庄",
   "item.anomaly_delight.multidimensional_shulker_bisque": "多维潜影浓汤",
   "item.anomaly_delight.deep_ocean_burger": "海洋深处汉堡包",
+  "item.anomaly_delight.hasokfish": "哈鲨克鱼",
+  "item.anomaly_delight.cooked_hasokfish": "熟哈鲨克鱼",
+  "item.anomaly_delight.hasokfish_sandwich": "炭烤哈鲨克鱼三明治",
 
   "item.anomaly_delight.spring_breath_qingtuan.desc": "那是我早已失去却试图追觅的温暖与甜蜜。",
   "item.anomaly_delight.starry_sky_white_flavor_railway_grilled_fish.desc": "你答应过我，那么鼓起勇气，去和她交朋友吧。",
@@ -46,12 +49,18 @@
   "item.ad.restaurant.ambrose_dust_and_dreams_tavern": "安布罗斯尘与梦酒馆",
   "item.ad.restaurant.ambrose_leaf_house": "安布罗斯树叶屋",
   "item.ad.restaurant.ambrose_data_layer_branch": "安布罗斯餐厅数据层分店",
-  "item.ad.restaurant.ambrose_data_layer_minecraft_branch": "安布罗斯数据层Minecraft分店",
+  "item.ad.restaurant.shenzhou": "安布罗斯联邦星舰神舟号食堂",
+  "item.ad.restaurant.mafuyu": "安布罗斯数据层马夫鱼分店",
+  "item.ad.restaurant.hasoook": "安布罗斯数据层Hasoook分店",
 
 
 
   "advancements.ad.tad": "试试就逝世",
   "advancements.ad.tad.desc": "食用一道异常乐事菜肴",
+  "advancements.ad.cs": "冷启动",
+  "advancements.ad.cs.desc": "食用一道安布罗斯尘与梦酒馆菜肴",
+  "advancements.ad.data": "欢迎来到木星域！",
+  "advancements.ad.data.desc": "食用一道安布罗斯数据层分店菜肴",
 
   "block.anomaly_delight.tscp": "标准奇术烹饪皿"
 }

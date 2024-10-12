@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "anomaly_delight:item/mafish_2"
+    "layer0": "anomaly_delight:item/deep_ocean_burger"
   }
 }

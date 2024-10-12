@@ -2,9 +2,23 @@ package cn.ussshenzhou.anomalydelight.item;
 
 import cn.ussshenzhou.anomalydelight.AnomalyDelight;
 import cn.ussshenzhou.anomalydelight.block.ModBlocks;
+import cn.ussshenzhou.anomalydelight.effect.ModEffects;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.levelgen.structure.structures.StrongholdPieces;
+import net.minecraft.world.level.levelgen.structure.structures.StrongholdStructure;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -35,6 +49,34 @@ public class ModItems {
             )
     );
 
+    public static final Supplier<Item> HASOKFISH = ITEMS.register("hasokfish",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .fireResistant()
+            )
+    );
+
+    public static final Supplier<Item> COOKED_HASOKFISH = ITEMS.register("cooked_hasokfish",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .fireResistant()
+            )
+    );
+    public static final Supplier<Item> HASOKFISH_SANDWICH = ITEMS.register("hasokfish_sandwich",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(16)
+                            .fireResistant()
+            )
+    );
+
+    public static final Supplier<Item> TSCP = ITEMS.register("tscp",
+            () -> new ThaumaturgyStandardCookingPotBlockItem(ModBlocks.TSCP.get(), new Item.Properties()
+                    .stacksTo(1)
+            )
+    );
     public static final Supplier<Item> SPINNING_SUSHI = ITEMS.register("spinning_sushi",
             () -> new Item(
                     new Item.Properties()
@@ -48,6 +90,7 @@ public class ModItems {
     public static final DeferredItem<Item> COOKED_DRAGON_EGG = ITEMS.register("cooked_dragon_egg",()->
             new Item(new Item.Properties().stacksTo(16).fireResistant().food(ModFoodProperties.COOKED_DRAGON_EGG)));
 
+    @SuppressWarnings("unchecked")
     public static final Supplier<Item> GRAND_LIBRARY_ESSENCE_COFFEE = ITEMS.register("grand_library_essence_coffee",
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
@@ -56,7 +99,27 @@ public class ModItems {
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_dream_tea_house")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xcc66ff)
+                            .withColor(0xcc66ff),
+                    entity -> {
+                        var level = (ServerLevel) entity.getLevel();
+                        if (level == null) {
+                            return false;
+                        }
+                        var structures = level.structureManager().startsForStructure(new ChunkPos(entity.getBlockPos()), structure -> structure instanceof StrongholdStructure);
+                        if (structures.isEmpty()) {
+                            return false;
+                        }
+                        for (var structure : structures) {
+                            var libraries = structure.getPieces().stream().filter(structurePiece -> structurePiece instanceof StrongholdPieces.Library).toList();
+                            for (var library : libraries) {
+                                if (library.getBoundingBox().isInside(entity.getBlockPos())) {
+                                    return true;
+                                }
+                            }
+                        }
+                        return false;
+                    },
+                    eater -> eater.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffects.GRAND_LIBRARY_ESSENCE_COFFEE, 300 * 20, 0, false, false, false))
             )
     );
 
@@ -68,7 +131,13 @@ public class ModItems {
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_24h_fast_food_convenience_store")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0x66ccff)
+                            .withColor(0x66ccff),
+                    null,
+                    eater -> {
+                        eater.heal(4);
+                        var toRemove = eater.getActiveEffects().stream().filter(e -> e.getEffect().value().getCategory() == MobEffectCategory.HARMFUL).toList();
+                        toRemove.forEach(e -> eater.removeEffect(e.getEffect()));
+                    }
             )
     );
 
@@ -94,7 +163,14 @@ public class ModItems {
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_moms_cooking")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xffcc99)
+                            .withColor(0xffcc99),
+                    null,
+                    eater -> {
+                        if (!eater.level().isClientSide) {
+                            var toRemove = eater.getActiveEffects().stream().filter(e -> e.getEffect().value().getCategory() == MobEffectCategory.HARMFUL).toList();
+                            toRemove.forEach(e -> eater.removeEffect(e.getEffect()));
+                        }
+                    }
             )
     );
 
@@ -108,7 +184,13 @@ public class ModItems {
                             .withColor(0xaaaaaa),
                     Component.translatable("item.ad.restaurant.ambrose_dust_and_dreams_tavern")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xf4b084)
+                            .withColor(0xf4b084),
+                    null,
+                    eater -> {
+                        if (eater.level().isClientSide) {
+                            eater.level().playLocalSound(eater, SoundEvents.MINECART_RIDING, SoundSource.PLAYERS, 0.4f, 1);
+                        }
+                    }
             )
     );
 
@@ -136,7 +218,8 @@ public class ModItems {
                             .withColor(0xaaaaaa),
                     Component.translatable("item.ad.restaurant.ambrose_dust_and_dreams_tavern")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xf4b084)
+                            .withColor(0xf4b084),
+                    entity -> entity.getLevel() != null && entity.getLevel().getBiome(entity.getBlockPos()) == Biomes.BEACH
             )
     );
 
@@ -150,7 +233,14 @@ public class ModItems {
                             .withColor(0xaaaaaa),
                     Component.translatable("item.ad.restaurant.ambrose_dust_and_dreams_tavern")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xf4b084)
+                            .withColor(0xf4b084),
+                    null,
+                    eater -> {
+                        if (!eater.level().isClientSide) {
+                            var toRemove = eater.getActiveEffects().stream().filter(e -> e.getEffect().value().getCategory() == MobEffectCategory.HARMFUL).toList();
+                            toRemove.forEach(e -> eater.removeEffect(e.getEffect()));
+                        }
+                    }
             )
     );
 
@@ -190,7 +280,20 @@ public class ModItems {
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_leaf_house")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0x70ad47)
+                            .withColor(0x70ad47),
+                    null,
+                    eater -> {
+                        if (eater.level().isClientSide) {
+                            return;
+                        }
+                        var players = eater.level().getNearbyPlayers(TargetingConditions.forNonCombat(), eater, eater.getBoundingBox().inflate(2));
+                        var effect = switch (players.size()) {
+                            case 0 -> new MobEffectInstance(MobEffects.WEAKNESS, 71 * 20, 0);
+                            case 1 -> new MobEffectInstance(MobEffects.REGENERATION, 520 * 20, 0);
+                            default -> new MobEffectInstance(MobEffects.CONFUSION, 30 * 20, 0);
+                        };
+                        eater.addEffect(effect);
+                    }
             )
     );
 
@@ -218,15 +321,18 @@ public class ModItems {
             )
     );
 
+    @SuppressWarnings("unchecked")
     public static final Supplier<Item> FRIED_ECHO_SHARDS_WITH_AGED_ROSE_SAUCE = ITEMS.register("fried_echo_shards_with_aged_rose_sauce",
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
                     /*TODO .food*/,
                     null,
-                    Component.translatable("item.ad.restaurant.ambrose_data_layer_minecraft_branch")
+                    Component.translatable("item.ad.restaurant.shenzhou")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0x000099)
+                            .withColor(0xff2e3b),
+                    null,
+                    eater -> eater.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffects.FRIED_ECHO_SHARDS_WITH_AGED_ROSE_SAUCE, 120 * 20, 0, false, false, false))
             )
     );
 
@@ -236,9 +342,17 @@ public class ModItems {
                             .stacksTo(16)
                     /*TODO .food*/,
                     null,
-                    Component.translatable("item.ad.restaurant.ambrose_data_layer_minecraft_branch")
+                    Component.translatable("item.ad.restaurant.shenzhou")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xff2e3b)
+                            .withColor(0xff2e3b),
+                    null,
+                    eater -> {
+                        //noinspection unchecked
+                        eater.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffects.WUTHERING_DEPTH, 120 * 20, 0, false, false, false));
+                        if (!eater.level().isClientSide) {
+                            eater.level().playSound(eater, eater.blockPosition(), SoundEvents.SCULK_SHRIEKER_SHRIEK, SoundSource.PLAYERS, 1, 1);
+                        }
+                    }
             )
     );
 
@@ -248,7 +362,7 @@ public class ModItems {
                             .stacksTo(16)
                     /*TODO .food*/,
                     null,
-                    Component.translatable("item.ad.restaurant.ambrose_data_layer_minecraft_branch")
+                    Component.translatable("item.ad.restaurant.shenzhou")
                             .withStyle(ChatFormatting.ITALIC)
                             .withColor(0xff2e3b)
             )
@@ -260,7 +374,7 @@ public class ModItems {
                             .stacksTo(16)
                     /*TODO .food*/,
                     null,
-                    Component.translatable("item.ad.restaurant.ambrose_data_layer_minecraft_branch")
+                    Component.translatable("item.ad.restaurant.shenzhou")
                             .withStyle(ChatFormatting.ITALIC)
                             .withColor(0xff2e3b)
             )

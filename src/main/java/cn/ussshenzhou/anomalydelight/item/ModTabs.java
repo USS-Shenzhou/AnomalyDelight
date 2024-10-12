@@ -31,6 +31,9 @@ public class ModTabs {
                             .displayItems((itemDisplayParameters, output) -> output.acceptAll(Stream.of(
                                     TSCP,
                                     MAFISH,
+                                    HASOKFISH,
+                                    COOKED_HASOKFISH,
+                                    HASOKFISH_SANDWICH,
                                     SPINNING_SUSHI,
                                     GRAND_LIBRARY_ESSENCE_COFFEE,
                                     THAUMATURGIC_WATERMELON_JUICE,
