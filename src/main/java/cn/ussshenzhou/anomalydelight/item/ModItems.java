@@ -3,6 +3,8 @@ package cn.ussshenzhou.anomalydelight.item;
 import cn.ussshenzhou.anomalydelight.AnomalyDelight;
 import cn.ussshenzhou.anomalydelight.block.ModBlocks;
 import cn.ussshenzhou.anomalydelight.effect.ModEffects;
+import cn.ussshenzhou.t88.task.RepeatTask;
+import cn.ussshenzhou.t88.task.TaskHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
@@ -14,7 +16,9 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.structure.structures.StrongholdPieces;
@@ -69,10 +73,10 @@ public class ModItems {
 
     @SuppressWarnings("unchecked")
     public static final Supplier<Item> GRAND_LIBRARY_ESSENCE_COFFEE = ITEMS.register("grand_library_essence_coffee",
-            () -> new BaseAnomalyDelightMeal(
+            () -> new BaseAnomalyDelightDrink(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .craftRemainder(Items.GLASS_BOTTLE),
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_dream_tea_house")
                             .withStyle(ChatFormatting.ITALIC)
@@ -96,15 +100,16 @@ public class ModItems {
                         }
                         return false;
                     },
+                    //TODO hiddenEffects
                     eater -> eater.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffects.GRAND_LIBRARY_ESSENCE_COFFEE, 300 * 20, 0, false, false, false))
             )
     );
 
     public static final Supplier<Item> THAUMATURGIC_WATERMELON_JUICE = ITEMS.register("thaumaturgic_watermelon_juice",
-            () -> new BaseAnomalyDelightMeal(
+            () -> new BaseAnomalyDelightDrink(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .craftRemainder(Items.GLASS_BOTTLE),
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_24h_fast_food_convenience_store")
                             .withStyle(ChatFormatting.ITALIC)
@@ -122,7 +127,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.SPRING_BREATH_QINGTUAN),
                     Component.translatable("item.anomaly_delight.spring_breath_qingtuan.desc")
                             .withStyle(ChatFormatting.ITALIC)
                             .withColor(0xaaaaaa),
@@ -133,10 +138,10 @@ public class ModItems {
     );
 
     public static final Supplier<Item> AGED_SAKURA_SWEET_SAKE = ITEMS.register("aged_sakura_sweet_sake",
-            () -> new BaseAnomalyDelightMeal(
+            () -> new BaseAnomalyDelightDrink(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .craftRemainder(Items.GLASS_BOTTLE),
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_moms_cooking")
                             .withStyle(ChatFormatting.ITALIC)
@@ -146,6 +151,7 @@ public class ModItems {
                         if (!eater.level().isClientSide) {
                             var toRemove = eater.getActiveEffects().stream().filter(e -> e.getEffect().value().getCategory() == MobEffectCategory.HARMFUL).toList();
                             toRemove.forEach(e -> eater.removeEffect(e.getEffect()));
+                            eater.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60 * 20));
                         }
                     }
             )
@@ -155,7 +161,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.STARRY_SKY_WHITE_FLAVOR_RAILWAY_GRILLED_FISH),
                     Component.translatable("item.anomaly_delight.starry_sky_white_flavor_railway_grilled_fish.desc")
                             .withStyle(ChatFormatting.ITALIC)
                             .withColor(0xaaaaaa),
@@ -175,7 +181,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.LONG_AWAITED_CENTURY_SOUP),
                     Component.translatable("item.anomaly_delight.long_awaited_century_soup.desc")
                             .withStyle(ChatFormatting.ITALIC)
                             .withColor(0xaaaaaa),
@@ -189,7 +195,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.RADISH_CANE_SEA_BREEZE_SWEET_SOUP),
                     Component.translatable("item.anomaly_delight.radish_cane_sea_breeze_sweet_soup.desc")
                             .withStyle(ChatFormatting.ITALIC)
                             .withColor(0xaaaaaa),
@@ -204,7 +210,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.HOMESTYLE_CANNED_CHEESE_BAKED_RICE),
                     Component.translatable("item.anomaly_delight.homestyle_canned_cheese_baked_rice.desc")
                             .withStyle(ChatFormatting.ITALIC)
                             .withColor(0xaaaaaa),
@@ -225,7 +231,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.GOLDEN_CUPCAKES_WITH_BANDED_AGATE_CHOCOLATE),
                     Component.translatable("item.anomaly_delight.golden_cupcakes_with_banded_agate_chocolate.desc")
                             .withStyle(ChatFormatting.ITALIC)
                             .withColor(0xaaaaaa),
@@ -236,16 +242,18 @@ public class ModItems {
     );
 
     public static final Supplier<Item> SHANGHAI_SUNRISE_COCKTAIL = ITEMS.register("shanghai_sunrise_cocktail",
-            () -> new BaseAnomalyDelightMeal(
+            () -> new BaseAnomalyDelightDrink(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .craftRemainder(Items.GLASS_BOTTLE),
                     Component.translatable("item.anomaly_delight.shanghai_sunrise_cocktail.desc")
                             .withStyle(ChatFormatting.ITALIC)
                             .withColor(0xaaaaaa),
                     Component.translatable("item.ad.restaurant.ambrose_dust_and_dreams_tavern")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xf4b084)
+                            .withColor(0xf4b084),
+                    null,
+                    eater -> eater.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 20, 2))
             )
     );
 
@@ -253,7 +261,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.ROMANCE_AND_ENCOUNTER),
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_leaf_house")
                             .withStyle(ChatFormatting.ITALIC)
@@ -278,7 +286,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.YOURSELF),
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_data_layer_branch")
                             .withStyle(ChatFormatting.ITALIC)
@@ -290,7 +298,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.ROASTED_MILLENNIUM_BUG_WITH_BINARY_TREE_WOOD),
                     null,
                     Component.translatable("item.ad.restaurant.ambrose_data_layer_branch")
                             .withStyle(ChatFormatting.ITALIC)
@@ -303,7 +311,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.FRIED_ECHO_SHARDS_WITH_AGED_ROSE_SAUCE),
                     null,
                     Component.translatable("item.ad.restaurant.shenzhou")
                             .withStyle(ChatFormatting.ITALIC)
@@ -317,7 +325,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.WUTHERING_DEPTH),
                     null,
                     Component.translatable("item.ad.restaurant.shenzhou")
                             .withStyle(ChatFormatting.ITALIC)
@@ -326,8 +334,9 @@ public class ModItems {
                     eater -> {
                         //noinspection unchecked
                         eater.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffects.WUTHERING_DEPTH, 120 * 20, 0, false, false, false));
-                        if (!eater.level().isClientSide) {
-                            eater.level().playSound(eater, eater.blockPosition(), SoundEvents.SCULK_SHRIEKER_SHRIEK, SoundSource.PLAYERS, 1, 1);
+                        if (!eater.level().isClientSide && eater instanceof Player player) {
+                            //FIXME
+                            eater.level().playSeededSound(player, eater.position().x, eater.position().y, eater.position().z, SoundEvents.SCULK_SHRIEKER_SHRIEK, SoundSource.PLAYERS, 1, 1, 42L);
                         }
                     }
             )
@@ -337,7 +346,7 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.MULTIDIMENSIONAL_SHULKER_BISQUE),
                     null,
                     Component.translatable("item.ad.restaurant.shenzhou")
                             .withStyle(ChatFormatting.ITALIC)
@@ -349,11 +358,39 @@ public class ModItems {
             () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
-                    /*TODO .food*/,
+                            .food(ModFoodProperties.DEEP_OCEAN_BURGER),
                     null,
                     Component.translatable("item.ad.restaurant.shenzhou")
                             .withStyle(ChatFormatting.ITALIC)
-                            .withColor(0xff2e3b)
+                            .withColor(0xff2e3b),
+                    null,
+                    eater -> {
+                        //TODO tp
+                        var level = eater.level();
+                        if (level.isClientSide) {
+                            return;
+                        }
+                        var uuid = eater.getUUID();
+                        TaskHelper.addServerTask(new RepeatTask(() -> {
+                            var e = level.getPlayerByUUID(uuid);
+                            if (e != null) {
+                                e.removeEffect(MobEffects.DIG_SLOWDOWN);
+                            }
+                        }, 0, 20) {
+                            @SuppressWarnings("FieldCanBeLocal")
+                            private final int life = 300 * 20;
+                            private int age = 0;
+
+                            @Override
+                            public void tick() {
+                                if (age >= life) {
+                                    this.cancel();
+                                }
+                                super.tick();
+                                age++;
+                            }
+                        });
+                    }
             )
     );
 }

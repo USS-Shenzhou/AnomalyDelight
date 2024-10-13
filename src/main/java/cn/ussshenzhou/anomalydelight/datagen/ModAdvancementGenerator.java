@@ -76,9 +76,9 @@ public class ModAdvancementGenerator implements AdvancementProvider.AdvancementG
         var welcomeToJupiterDomain = Advancement.Builder.advancement()
                 .display(
                         ModItems.ROASTED_MILLENNIUM_BUG_WITH_BINARY_TREE_WOOD.get(),
-                        Component.translatable("advancements.ad.cs")
+                        Component.translatable("advancements.ad.data")
                                 .withColor(0x000099),
-                        Component.translatable("advancements.ad.cs.desc"),
+                        Component.translatable("advancements.ad.data.desc"),
                         null, AdvancementType.TASK, true, true, false
                 )
                 .parent(root)
