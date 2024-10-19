@@ -18,7 +18,14 @@ public class ModFoodProperties {
             .nutrition(4)
             .saturationModifier(0.3f)
             .alwaysEdible()
-            .effect(() -> new MobEffectInstance((Holder<MobEffect>)ModEffects.RANDOM_VARIABLE_SOUP, 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(LUCK, 60 * 20, 0), 1)
+            .build();
+
+    public static final FoodProperties MAFISH_SOUP = new FoodProperties.Builder()
+            .nutrition(6)
+            .saturationModifier(0.6f)
+            .alwaysEdible()
+            .effect(() -> new MobEffectInstance((Holder<MobEffect>)ModEffects.RANDOM_VARIABLE_SOUP, 300 * 20, 0), 1)
             .build();
 
     public static final FoodProperties SPRING_BREATH_QINGTUAN = new FoodProperties.Builder()

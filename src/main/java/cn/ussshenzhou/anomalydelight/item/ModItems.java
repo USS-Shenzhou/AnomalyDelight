@@ -41,9 +41,16 @@ public class ModItems {
     public static final Supplier<Item> MAFISH = ITEMS.register("mafish",
             () -> new Item(
                     new Item.Properties()
-                            .stacksTo(1)
-                            .fireResistant()
+                            .stacksTo(64)
                             .food(ModFoodProperties.MAFISH)
+            )
+    );
+
+    public static final Supplier<Item> MAFISH_SOUP = ITEMS.register("mafish_soup",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(1)
+                            .food(ModFoodProperties.MAFISH_SOUP)
             )
     );
 
