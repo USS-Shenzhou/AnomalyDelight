@@ -1,7 +1,9 @@
 package cn.ussshenzhou.anomalydelight.block.entity;
 
 import cn.ussshenzhou.anomalydelight.block.container.ThaumaturgyStandardCookingPotMenu;
+import cn.ussshenzhou.anomalydelight.entity.ThaumaturgyMelonSliceEntity;
 import cn.ussshenzhou.anomalydelight.item.BaseAnomalyDelightMeal;
+import cn.ussshenzhou.anomalydelight.item.ModItems;
 import cn.ussshenzhou.anomalydelight.recipe.ModRecipeTypes;
 import cn.ussshenzhou.anomalydelight.recipe.ThaumaturgyStandardCookingPotRecipe;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -12,11 +14,10 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -173,33 +174,53 @@ public class ThaumaturgyStandardCookingPotBlockEntity extends CookingPotBlockEnt
         return stateBelow.getBlock() == Blocks.CRYING_OBSIDIAN;
     }
 
-    public static void cookingTick(Level level, BlockPos pos, BlockState state, ThaumaturgyStandardCookingPotBlockEntity tscp) {
-        boolean isHeated = tscp.isHeated(level, pos);
+    public static void cookingTick(Level level, BlockPos pos, BlockState state, ThaumaturgyStandardCookingPotBlockEntity thiz) {
+        boolean isHeated = thiz.isHeated(level, pos);
         boolean didInventoryChange = false;
-        if (isHeated && tscp.hasInput()) {
-            Optional<RecipeHolder<ThaumaturgyStandardCookingPotRecipe>> recipe = tscp.getMatchingRecipe(new RecipeWrapper(tscp.getInventory()));
-            if (recipe.isPresent() && tscp.canCook((ThaumaturgyStandardCookingPotRecipe) ((RecipeHolder<?>) recipe.get()).value())) {
-                didInventoryChange = tscp.processCooking(recipe.get(), tscp);
+        if (isHeated && thiz.hasInput()) {
+            Optional<RecipeHolder<ThaumaturgyStandardCookingPotRecipe>> recipe = thiz.getMatchingRecipe(new RecipeWrapper(thiz.getInventory()));
+            if (recipe.isPresent() && thiz.canCook((ThaumaturgyStandardCookingPotRecipe) ((RecipeHolder<?>) recipe.get()).value())) {
+                didInventoryChange = thiz.processCooking(recipe.get(), thiz);
+
+                // ThaumaturgyMelonSlice
+                if (recipe.get().value().getOutput().is(ModItems.THAUMATURGIC_WATERMELON_JUICE.get()) && level.random.nextDouble() < 0.005) {
+                    for (int i = 0; i < 6; ++i) {
+                        ItemStack slotStack = thiz.getInventory().getStackInSlot(i);
+                        if (slotStack.is(Items.GLISTERING_MELON_SLICE)) {
+                            slotStack.shrink(1);
+                            var melonSlice = new ThaumaturgyMelonSliceEntity(level);
+                            melonSlice.setPos(thiz.getBlockPos().getX() + 0.5, thiz.getBlockPos().getY() + 14 / 16.0, thiz.getBlockPos().getZ() + 0.5);
+                            melonSlice.setDeltaMovement(
+                                    level.random.nextDouble() * 0.1 * (level.random.nextBoolean() ? 1 : -1),
+                                    level.random.nextDouble() * 0.5,
+                                    level.random.nextDouble() * 0.1 * (level.random.nextBoolean() ? 1 : -1)
+                            );
+                            level.addFreshEntity(melonSlice);
+                            break;
+                        }
+                    }
+                }
+
             } else {
-                tscp.setCookTime(0);
+                thiz.setCookTime(0);
             }
-        } else if (tscp.getCookTime() > 0) {
-            tscp.setCookTime(Mth.clamp(tscp.getCookTime() - 2, 0, tscp.getCookTimeTotal()));
+        } else if (thiz.getCookTime() > 0) {
+            thiz.setCookTime(Mth.clamp(thiz.getCookTime() - 2, 0, thiz.getCookTimeTotal()));
         }
 
-        ItemStack mealStack = tscp.getMeal();
+        ItemStack mealStack = thiz.getMeal();
         if (!mealStack.isEmpty()) {
-            if (!tscp.doesMealHaveContainer(mealStack)) {
-                tscp.moveMealToOutput();
+            if (!thiz.doesMealHaveContainer(mealStack)) {
+                thiz.moveMealToOutput();
                 didInventoryChange = true;
-            } else if (!tscp.getInventory().getStackInSlot(7).isEmpty()) {
-                tscp.useStoredContainersOnMeal();
+            } else if (!thiz.getInventory().getStackInSlot(7).isEmpty()) {
+                thiz.useStoredContainersOnMeal();
                 didInventoryChange = true;
             }
         }
 
         if (didInventoryChange) {
-            tscp.inventoryChanged();
+            thiz.inventoryChanged();
         }
 
     }
