@@ -36,6 +36,13 @@ public class ThaumaturgyStandardCookingPotRecipeGenerator extends RecipeProvider
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput, HolderLookup.Provider holderLookup) {
+        ThaumaturgyStandardCookingPotRecipeBuilder.cookingPotRecipe(MAFISH_SOUP.get(), 1, NORMAL_COOKING, LARGE_EXP, BOWL)
+                .addIngredient(SUSPICIOUS_STEW)
+                .addIngredient(MAFISH.get())
+                .unlockedByItems(HAS_TSCP, TSCP.get())
+                .setRecipeBookTab(MEALS)
+                .build(recipeOutput);
+
         ThaumaturgyStandardCookingPotRecipeBuilder.cookingPotRecipe(GRAND_LIBRARY_ESSENCE_COFFEE.get(), 1, NORMAL_COOKING, LARGE_EXP, GLASS_BOTTLE)
                 .addIngredient(COCOA_BEANS)
                 .addIngredient(FOODS_MILK)

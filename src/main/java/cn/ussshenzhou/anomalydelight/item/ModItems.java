@@ -23,6 +23,7 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.structure.structures.StrongholdPieces;
 import net.minecraft.world.level.levelgen.structure.structures.StrongholdStructure;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -33,12 +34,23 @@ import java.util.function.Supplier;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AnomalyDelight.MODID);
 
+    public static DeferredItem<Item> registerItem(String name, Supplier<Item> itemSupplier){
+        return ITEMS.register(name,itemSupplier);
+    }
+
     public static final Supplier<Item> MAFISH = ITEMS.register("mafish",
             () -> new Item(
                     new Item.Properties()
-                            .stacksTo(1)
-                            .fireResistant()
+                            .stacksTo(64)
                             .food(ModFoodProperties.MAFISH)
+            )
+    );
+
+    public static final Supplier<Item> MAFISH_SOUP = ITEMS.register("mafish_soup",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(1)
+                            .food(ModFoodProperties.MAFISH_SOUP)
             )
     );
 
@@ -70,6 +82,18 @@ public class ModItems {
                     .stacksTo(1)
             )
     );
+    public static final Supplier<Item> SPINNING_SUSHI = ITEMS.register("spinning_sushi",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .food(ModFoodProperties.SPINNING_SUSHI)
+            )
+    );
+
+    public static final DeferredItem<Item> HOT_DRAGON_EGG = ITEMS.register("hot_dragon_egg",()->
+            new Item(new Item.Properties().stacksTo(1).fireResistant()));
+    public static final DeferredItem<Item> COOKED_DRAGON_EGG = ITEMS.register("cooked_dragon_egg",()->
+            new Item(new Item.Properties().stacksTo(16).fireResistant().food(ModFoodProperties.COOKED_DRAGON_EGG)));
 
     @SuppressWarnings("unchecked")
     public static final Supplier<Item> GRAND_LIBRARY_ESSENCE_COFFEE = ITEMS.register("grand_library_essence_coffee",
