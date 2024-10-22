@@ -13,6 +13,7 @@ import vectorwing.farmersdelight.client.gui.CookingPotRecipeBookComponent;
 import vectorwing.farmersdelight.client.gui.CookingPotScreen;
 import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
 import vectorwing.farmersdelight.common.block.entity.container.CookingPotMenu;
+import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.*;
@@ -33,7 +34,7 @@ public class ThaumaturgyStandardCookingPotMenuScreen extends CookingPotScreen {
         try {
             var recipeBookComponentField = CookingPotScreen.class.getDeclaredField("recipeBookComponent");
             recipeBookComponentField.setAccessible(true);
-            recipeBookComponentField.set(this,new ThaumaturgyStandardCookingPotRecipeBookComponent());
+            recipeBookComponentField.set(this, new ThaumaturgyStandardCookingPotRecipeBookComponent());
         } catch (NoSuchFieldException | IllegalAccessException e) {
             LogUtils.getLogger().error(e.toString());
         }
@@ -55,6 +56,29 @@ public class ThaumaturgyStandardCookingPotMenuScreen extends CookingPotScreen {
 
             int l = this.menu.getCookProgressionScaled();
             gui.blit(BACKGROUND_TEXTURE, this.leftPos + PROGRESS_ARROW.x, this.topPos + PROGRESS_ARROW.y, 176, 15, l + 1, PROGRESS_ARROW.height);
+        }
+    }
+
+    @Override
+    public void render(GuiGraphics gui, int mouseX, int mouseY, float partialTicks) {
+        super.render(gui, mouseX, mouseY, partialTicks);
+        this.renderHeatIndicatorTooltip(gui, mouseX, mouseY);
+    }
+
+    private void renderHeatIndicatorTooltip(GuiGraphics gui, int mouseX, int mouseY) {
+        if (super.isHovering(HEAT_ICON.x, HEAT_ICON.y, HEAT_ICON.width, HEAT_ICON.height, mouseX, mouseY)) {
+            String key = "container.ad." + (this.menu.isHeated() ? "heated" : "not_heated");
+            gui.renderTooltip(this.font, Component.translatable(key), mouseX, mouseY);
+        }
+
+    }
+
+    @Override
+    protected boolean isHovering(int x, int y, int width, int height, double mouseX, double mouseY) {
+        if (x == HEAT_ICON.x && y == HEAT_ICON.y && width == HEAT_ICON.width && height == HEAT_ICON.height) {
+            return false;
+        } else {
+            return super.isHovering(x, y, width, height, mouseX, mouseY);
         }
     }
 }

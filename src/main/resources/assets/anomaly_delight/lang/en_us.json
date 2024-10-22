@@ -47,6 +47,8 @@
   "advancements.ad.data": "Welcome to Jupiter Domain!",
   "advancements.ad.data.desc": "Eat your first Data Layer Branch food.",
 
-  "block.anomaly_delight.tscp": "Thaumaturgy Standard Cooking Pot"
+  "block.anomaly_delight.tscp": "Thaumaturgy Standard Cooking Pot",
 
+  "container.ad.heated": "Energized",
+  "container.ad.not_heated": "Not Energized"
 }
