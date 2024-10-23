@@ -1,9 +1,11 @@
 package cn.ussshenzhou.anomalydelight.item;
 
+import cn.ussshenzhou.anomalydelight.effect.ModEffects;
+import net.minecraft.core.Holder;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import vectorwing.farmersdelight.common.registry.ModEffects;
 
 import static net.minecraft.world.effect.MobEffects.*;
 import static vectorwing.farmersdelight.common.registry.ModEffects.*;
@@ -16,7 +18,14 @@ public class ModFoodProperties {
             .nutrition(4)
             .saturationModifier(0.3f)
             .alwaysEdible()
-            .effect(() -> new MobEffectInstance(JUMP), 1)
+            .effect(() -> new MobEffectInstance(LUCK, 60 * 20, 0), 1)
+            .build();
+
+    public static final FoodProperties MAFISH_SOUP = new FoodProperties.Builder()
+            .nutrition(6)
+            .saturationModifier(0.6f)
+            .alwaysEdible()
+            .effect(() -> new MobEffectInstance((Holder<MobEffect>)ModEffects.RANDOM_VARIABLE_SOUP, 300 * 20, 0), 1)
             .build();
 
     public static final FoodProperties SPRING_BREATH_QINGTUAN = new FoodProperties.Builder()
@@ -102,5 +111,24 @@ public class ModFoodProperties {
             .nutrition(10)
             .saturationModifier(0.8f)
             .effect(() -> new MobEffectInstance(WATER_BREATHING, 300 * 20), 1)
+            .build();
+
+    public static final FoodProperties SPINNING_SUSHI = new FoodProperties.Builder()
+            .nutrition(2)
+            .saturationModifier(0.1f)
+            .alwaysEdible()
+            .effect(() -> new MobEffectInstance((Holder<MobEffect>)ModEffects.SPIN_EFFECT, 200, 0), 0.5F)
+            .build();
+
+    public static final FoodProperties COOKED_DRAGON_EGG = new FoodProperties.Builder()
+            /*TODO .food*/
+            // 恢复的饥饿值
+            .nutrition(8)
+            // 饱和度
+            .saturationModifier(0.3f)
+            // 总是可以食用（即使饱腹）
+            .alwaysEdible()
+            // 力量 III，持续无限时间
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, -1, 2), 1.0F)
             .build();
 }

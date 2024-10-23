@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 1000,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "anomaly_delight:hot_dragon_egg"
+  },
+  "result": {
+    "count": 1,
+    "id": "anomaly_delight:cooked_dragon_egg"
+  }
+}

@@ -1,6 +1,19 @@
 {
   "itemGroup.ad": "Anomaly Delight",
   "item.anomaly_delight.mafish": "Mafish",
+  "item.anomaly_delight.mafish_soup": "Mafish Soup",
+  "item.anomaly_delight.spinning_sushi": "'spinning'_sushi",
+  "item.anomaly_delight.hot_dragon_egg": "hot_dragon_egg",
+  "item.anomaly_delight.cooked_dragon_egg": "cooked_dragon_egg",
+
+  "effect.anomaly_delight.random_variable_soup": "Quantum",
+  "effect.anomaly_delight.spin_effect": "Spin",
+
+  "item.minecraft.potion.effect.spin_potion": "Spin",
+  "item.minecraft.splash_potion.effect.spin_potion": "Splash Spin",
+  "item.minecraft.lingering_potion.effect.spin_potion": "Lingering Spin",
+  "item.minecraft.tipped_arrow.effect.spin_potion": "Spin",
+
   "item.anomaly_delight.grand_library_essence_coffee": "Grand Library Essence Coffee",
   "item.anomaly_delight.thaumaturgic_watermelon_juice": "Thaumaturgic Watermelon Juice",
   "item.anomaly_delight.spring_breath_qingtuan": "Spring Breath Qingtuan",
