@@ -107,7 +107,8 @@ public class GameEventListener {
     @SubscribeEvent
     public static void ItemTooltipEvent(ItemTooltipEvent event){
         Player player = event.getEntity();
-        if (player == null) {// 如果 player 为 null，则不执行操作，直接返回
+        // 如果 player 为 null，则不执行操作，直接返回
+        if (player == null) {
             return;
         }
         Level level = event.getEntity().level();
@@ -251,7 +252,8 @@ public class GameEventListener {
         Level level = event.getLevel();
         Player player = event.getEntity();
         BlockPos blockPos = event.getPos();
-        Direction face = event.getFace(); // 获取点击的方向
+        // 获取点击的方向
+        Direction face = event.getFace();
         // 构建 BlockHitResult 直接使用事件中的 blockPos 和 face
         BlockHitResult blockHitResult = new BlockHitResult(player.getEyePosition(), face, blockPos, false);
         RandomTriggerManager.performRandomAction(player,level,hand,null,blockHitResult,"PlayerInteractEvent.LeftClickBlock");
@@ -262,7 +264,8 @@ public class GameEventListener {
         Level level = event.getLevel();
         Player player = event.getEntity();
         BlockPos blockPos = event.getPos();
-        Direction face = event.getFace(); // 获取点击的方向
+        // 获取点击的方向
+        Direction face = event.getFace();
         // 构建 BlockHitResult 直接使用事件中的 blockPos 和 face
         BlockHitResult blockHitResult = new BlockHitResult(player.getEyePosition(), face, blockPos, false);
         RandomTriggerManager.performRandomAction(player,level,hand,null,blockHitResult,"PlayerInteractEvent.LeftClickBlock");
@@ -305,8 +308,8 @@ public class GameEventListener {
         if (result.getType() == HitResult.Type.MISS) {
             // 获取玩家当前位置的方块
             BlockPos playerBlockPos = player.blockPosition();
-            // 确定命中的方向
-            Direction hitDirection = Direction.UP;  // 根据玩家与方块的关系，这里假设向上
+            // 确定命中的方向，根据玩家与方块的关系，这里假设向上
+            Direction hitDirection = Direction.UP;
             Vec3 hitVec = new Vec3(playerBlockPos.getX() + 0.5, playerBlockPos.getY(), playerBlockPos.getZ() + 0.5);
             // 构建新的 BlockHitResult 使用玩家脚下的方块位置
             result = new BlockHitResult(hitVec, hitDirection, playerBlockPos, false);
@@ -375,7 +378,8 @@ public class GameEventListener {
         Level level = event.getLevel();
         InteractionHand hand = event.getHand();
         BlockPos blockPos = event.getPos();
-        Direction face = event.getFace(); // 获取点击的方向
+        // 获取点击的方向
+        Direction face = event.getFace();
         // 构建 BlockHitResult 直接使用事件中的 blockPos 和 face
         BlockHitResult blockHitResult = new BlockHitResult(player.getEyePosition(), face, blockPos, false);
         RandomTriggerManager.performRandomAction(player,level,hand,null,blockHitResult,"UseItemOnBlockEvent");

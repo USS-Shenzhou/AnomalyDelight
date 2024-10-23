@@ -509,16 +509,21 @@ public class RandomTriggerManager {
             } while (randomEffectHolder.value() == MobEffects.HARM);
 
             // 随机选择效果等级（放大器），这里选择0到2
-            int amplifier = random.nextInt(3); // 等级 0, 1, 或 2
+            // 等级 0, 1, 或 2
+            int amplifier = random.nextInt(3);
 
             // 按放大器减少持续时间：放大器越高，时间越短
-            int maxDurationSeconds = 60; // 最大时间为 60 秒
-            int minDurationSeconds = 5;  // 最小时间为 5 秒
+            // 最大时间为 60 秒
+            int maxDurationSeconds = 60;
+            // 最小时间为 5 秒
+            int minDurationSeconds = 5;
             int durationRange = maxDurationSeconds - minDurationSeconds;
 
             // 计算根据放大器减少的持续时间，放大器越高时间越短
-            int durationSeconds = maxDurationSeconds - amplifier * (durationRange / 3); // 放大器为2时，时长最短
-            int durationTicks = durationSeconds * 20; // 将秒转换为游戏刻（20刻=1秒）
+            // 放大器为2时，时长最短
+            int durationSeconds = maxDurationSeconds - amplifier * (durationRange / 3);
+            // 将秒转换为游戏刻（20刻=1秒）
+            int durationTicks = durationSeconds * 20;
 
             // 创建 MobEffectInstance，使用 Holder<MobEffect>
             MobEffectInstance effectInstance = new MobEffectInstance(randomEffectHolder, durationTicks, amplifier);
