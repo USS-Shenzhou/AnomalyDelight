@@ -190,13 +190,13 @@ public class RandomTriggerManager {
     }
 
     // 随机物品
-    public static void useRandomItem(Player player, Level world, @Nullable InteractionHand hand, @Nullable Entity target, @Nullable BlockHitResult blockHitResult) {
+    public static void useRandomItem(Player player, Level world, InteractionHand hand, @Nullable Entity target, @Nullable BlockHitResult blockHitResult) {
         if (!world.isClientSide) {
             // 获取所有注册的物品
             Item[] allItems = world.registryAccess().registryOrThrow(Registries.ITEM).stream().toArray(Item[]::new);
 
             Random random = new Random();
-            Item randomItem = null;
+            Item randomItem;
             do {
                 int randomIndex = random.nextInt(allItems.length);
                 randomItem = allItems[randomIndex];
@@ -511,9 +511,6 @@ public class RandomTriggerManager {
             // 随机选择效果等级（放大器），这里选择0到2
             // 等级 0, 1, 或 2
             int amplifier = random.nextInt(3);
-
-            // 按放大器减少持续时间：放大器越高，时间越短
-            // 最大时间为 60 秒
             int maxDurationSeconds = 60;
             // 最小时间为 5 秒
             int minDurationSeconds = 5;

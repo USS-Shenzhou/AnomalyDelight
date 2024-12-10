@@ -18,6 +18,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.*;
 
+/**
+ * @author Mafuyu33
+ */
 @EventBusSubscriber
 public class GameEventListener {
     @SubscribeEvent
@@ -239,6 +242,7 @@ public class GameEventListener {
         Entity target = event.getTarget();
         RandomTriggerManager.performRandomAction(player,level,hand,target,null,"PlayerInteractEvent.EntityInteract");
     }
+    @SubscribeEvent
     public static void PlayerInteractEventEntityInteractSpecific(PlayerInteractEvent.EntityInteractSpecific event){
         InteractionHand hand = event.getHand();
         Level level = event.getLevel();
@@ -254,21 +258,25 @@ public class GameEventListener {
         BlockPos blockPos = event.getPos();
         // 获取点击的方向
         Direction face = event.getFace();
-        // 构建 BlockHitResult 直接使用事件中的 blockPos 和 face
-        BlockHitResult blockHitResult = new BlockHitResult(player.getEyePosition(), face, blockPos, false);
-        RandomTriggerManager.performRandomAction(player,level,hand,null,blockHitResult,"PlayerInteractEvent.LeftClickBlock");
+        if(face!=null) {
+            // 构建 BlockHitResult 直接使用事件中的 blockPos 和 face
+            BlockHitResult blockHitResult = new BlockHitResult(player.getEyePosition(), face, blockPos, false);
+            RandomTriggerManager.performRandomAction(player, level, hand, null, blockHitResult, "PlayerInteractEvent.LeftClickBlock");
+        }
     }
     @SubscribeEvent
-    public static void PlayerInteractEventRightClickBlock(PlayerInteractEvent.RightClickBlock event){
+    public static void PlayerInteractEventRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         InteractionHand hand = event.getHand();
         Level level = event.getLevel();
         Player player = event.getEntity();
         BlockPos blockPos = event.getPos();
         // 获取点击的方向
         Direction face = event.getFace();
-        // 构建 BlockHitResult 直接使用事件中的 blockPos 和 face
-        BlockHitResult blockHitResult = new BlockHitResult(player.getEyePosition(), face, blockPos, false);
-        RandomTriggerManager.performRandomAction(player,level,hand,null,blockHitResult,"PlayerInteractEvent.LeftClickBlock");
+        if (face != null) {
+            // 构建 BlockHitResult 直接使用事件中的 blockPos 和 face
+            BlockHitResult blockHitResult = new BlockHitResult(player.getEyePosition(), face, blockPos, false);
+            RandomTriggerManager.performRandomAction(player, level, hand, null, blockHitResult, "PlayerInteractEvent.LeftClickBlock");
+        }
     }
     @SubscribeEvent
     public static void PlayerInteractEventLeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
@@ -380,9 +388,11 @@ public class GameEventListener {
         BlockPos blockPos = event.getPos();
         // 获取点击的方向
         Direction face = event.getFace();
+        if (player!=null & face != null) {
         // 构建 BlockHitResult 直接使用事件中的 blockPos 和 face
         BlockHitResult blockHitResult = new BlockHitResult(player.getEyePosition(), face, blockPos, false);
         RandomTriggerManager.performRandomAction(player,level,hand,null,blockHitResult,"UseItemOnBlockEvent");
+        }
     }
 //    @SubscribeEvent
 //    public static void PlayerXpEvent(PlayerXpEvent event){

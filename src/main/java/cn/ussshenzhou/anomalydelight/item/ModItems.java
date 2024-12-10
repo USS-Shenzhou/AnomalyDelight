@@ -90,11 +90,6 @@ public class ModItems {
             )
     );
 
-    public static final DeferredItem<Item> HOT_DRAGON_EGG = ITEMS.register("hot_dragon_egg",()->
-            new Item(new Item.Properties().stacksTo(1).fireResistant()));
-    public static final DeferredItem<Item> COOKED_DRAGON_EGG = ITEMS.register("cooked_dragon_egg",()->
-            new Item(new Item.Properties().stacksTo(16).fireResistant().food(ModFoodProperties.COOKED_DRAGON_EGG)));
-
     @SuppressWarnings("unchecked")
     public static final Supplier<Item> GRAND_LIBRARY_ESSENCE_COFFEE = ITEMS.register("grand_library_essence_coffee",
             () -> new BaseAnomalyDelightDrink(

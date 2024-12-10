@@ -9,6 +9,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 
+/**
+ * @author Mafuyu33
+ */
 @EventBusSubscriber(modid = AnomalyDelight.MODID)
 public class registerPotionsBrewingEvent {
 

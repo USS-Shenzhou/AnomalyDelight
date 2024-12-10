@@ -119,16 +119,4 @@ public class ModFoodProperties {
             .alwaysEdible()
             .effect(() -> new MobEffectInstance((Holder<MobEffect>)ModEffects.SPIN_EFFECT, 200, 0), 0.5F)
             .build();
-
-    public static final FoodProperties COOKED_DRAGON_EGG = new FoodProperties.Builder()
-            /*TODO .food*/
-            // 恢复的饥饿值
-            .nutrition(8)
-            // 饱和度
-            .saturationModifier(0.3f)
-            // 总是可以食用（即使饱腹）
-            .alwaysEdible()
-            // 力量 III，持续无限时间
-            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, -1, 2), 1.0F)
-            .build();
 }
