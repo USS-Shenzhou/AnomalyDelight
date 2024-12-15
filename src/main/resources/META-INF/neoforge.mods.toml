@@ -44,7 +44,46 @@ displayName="${mod_name}" #mandatory
 authors="${mod_authors}" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
-description='''${mod_description}'''
+description='''
+§l开源许可信息§r
+
+本模组受以下作品启发或由其演绎，依照CC BY-SA 3.0许可证获得许可：
+本模组的世界观来源于SCP基金会及其作者社群，https://scp-wiki-cn.wikidot.com/
+安布罗斯幻梦茶屋，作者@feitag，https://scp-wiki-cn.wikidot.com/oneiroi-food-guide-ambrose-dreams-teashop
+安布罗斯 x AWCY联名快闪店，作者@breaddddd，https://scp-wiki-cn.wikidot.com/ambrose-awcy-pop-up-shop
+安布罗斯24h速食便利店，作者@RainTravellerX_mco，https://scp-wiki-cn.wikidot.com/ambrose-24h-cvs
+安布罗斯命案，作者@ericsun165，https://scp-wiki-cn.wikidot.com/a-murder-in-ambrose
+安布罗斯大航海酒吧，作者@Confucian Lee，https://scp-wiki-cn.wikidot.com/ambrose-great-voyage
+安布罗斯妈妈菜，作者@RosaliaXD，https://scp-wiki-cn.wikidot.com/ambrose-moms-cuisine
+柯伊伯带内层轨道的安布罗斯餐厅，作者佚名，https://scp-wiki-cn.wikidot.com/ambrose-kuiper
+安布罗斯尘与梦酒馆，作者@MDYw_RainTree，https://scp-wiki-cn.wikidot.com/ambrose-d-d
+安布罗斯树叶屋的菜单，作者@yixi_Windbell，https://scp-wiki-cn.wikidot.com/ambrose-leafhouse
+安布罗斯餐厅数据层分店官方号，作者@Meltyland Nightmare，https://scp-wiki-cn.wikidot.com/maxwellism-ambrose
+
+§l采用其他许可证的作品§r
+本模组是农夫乐事附属模组，按MIT许可证进行引用, https://github.com/vectorwing/FarmersDelight
+qingtuan.png, CraftingPlusPlus, GPLv3, https://github.com/zhangshenxing/CraftingPlusPlus
+蔬菜鸡尾酒, 烹饪锅, MIT license, https://github.com/SihenZhang/CrockPot
+
+§lOpen Source Licenses Information§r
+This mod is inspired by or interpreted from the following works, licensed under CC BY-SA 3.0:
+SCP Foundation and its author community, https://scp-wiki-cn.wikidot.com/
+Oneiroi Food Guide Ambrose Dreams Teashop, author @feitag, https://scp-wiki-cn.wikidot.com/oneiroi-food-guide-ambrose-dreams-teashop
+Ambrose x AWCY Pop-Up Shop, author @breaddddd, https://scp-wiki-cn.wikidot.com/ambrose-awcy-pop-up-shop
+Ambrose 24h CVS, author @RainTravellerX_mco, https://scp-wiki-cn.wikidot.com/ambrose-24h-cvs
+A Murder in Ambrose, author @ericsun165, https://scp-wiki-cn.wikidot.com/a-murder-in-ambrose
+Ambrose Great Voyage, author @Confucian Lee, https://scp-wiki-cn.wikidot.com/ambrose-great-voyage
+Ambrose Mom's Cuisine, author @RosaliaXD, https://scp-wiki-cn.wikidot.com/ambrose-moms-cuisine
+Ambrose Kuiper, author anonymous, https://scp-wiki-cn.wikidot.com/ambrose-kuiper
+Ambrose Dust and Dream, author @MDYw_RainTree, https://scp-wiki-cn.wikidot.com/ambrose-d-d
+Ambrose LeafHouse's Menu, author @yixi_Windbell, https://scp-wiki-cn.wikidot.com/ambrose-leafhouse
+Official Account of Ambrose Data Layer Branch, author @Meltyland Nightmare, https://scp-wiki-cn.wikidot.com/maxwellism-ambrose
+
+§lOther works licenesed differently§r
+This mod is a add-on of Farmer's Delight, MIT license, https://github.com/vectorwing/FarmersDelight
+qingtuan.png, CraftingPlusPlus, GPLv3, https://github.com/zhangshenxing/CraftingPlusPlus
+Vegetable Stinger, Crock Pot, MIT license, https://github.com/SihenZhang/CrockPot
+'''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
 [[mixins]]

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "anomaly_delight:item/long_awaited_century_soup"
+  }
+}

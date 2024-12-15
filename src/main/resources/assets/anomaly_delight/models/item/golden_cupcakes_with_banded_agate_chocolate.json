@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "anomaly_delight:item/golden_cupcakes_with_banded_agate_chocolate"
+  }
+}
