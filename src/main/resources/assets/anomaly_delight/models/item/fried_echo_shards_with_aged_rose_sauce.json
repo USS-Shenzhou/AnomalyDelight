@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "anomaly_delight:item/fried_echo_shards_with_aged_rose_sauce"
+  }
+}
