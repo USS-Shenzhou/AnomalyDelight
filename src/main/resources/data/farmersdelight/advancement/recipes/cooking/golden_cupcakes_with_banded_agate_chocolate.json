@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "farmersdelight:cooking/golden_cupcakes_with_banded_agate_chocolate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tscp": {
+      "conditions": {
+        "items": [
+          {
+            "items": "anomaly_delight:tscp"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tscp"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "farmersdelight:cooking/golden_cupcakes_with_banded_agate_chocolate"
+    ]
+  }
+}

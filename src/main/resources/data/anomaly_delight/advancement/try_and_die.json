@@ -1,0 +1,53 @@
+{
+  "criteria": {
+    "eat": {
+      "conditions": {
+        "item": {
+          "items": [
+            "anomaly_delight:hasokfish",
+            "anomaly_delight:hasokfish_sandwich",
+            "anomaly_delight:radish_cane_sea_breeze_sweet_soup",
+            "anomaly_delight:starry_sky_white_flavor_railway_grilled_fish",
+            "anomaly_delight:yourself",
+            "anomaly_delight:multidimensional_shulker_bisque",
+            "anomaly_delight:spring_breath_qingtuan",
+            "anomaly_delight:golden_cupcakes_with_banded_agate_chocolate",
+            "anomaly_delight:thaumaturgic_watermelon_juice",
+            "anomaly_delight:homestyle_canned_cheese_baked_rice",
+            "anomaly_delight:deep_ocean_burger",
+            "anomaly_delight:cooked_hasokfish",
+            "anomaly_delight:tscp",
+            "anomaly_delight:long_awaited_century_soup",
+            "anomaly_delight:roasted_millennium_bug_with_binary_tree_wood",
+            "anomaly_delight:grand_library_essence_coffee",
+            "anomaly_delight:mafish",
+            "anomaly_delight:romance_and_encounter",
+            "anomaly_delight:wuthering_depth",
+            "anomaly_delight:shanghai_sunrise_cocktail",
+            "anomaly_delight:aged_sakura_sweet_sake",
+            "anomaly_delight:fried_echo_shards_with_aged_rose_sauce"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ad.tad.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "anomaly_delight:tscp"
+    },
+    "title": {
+      "translate": "advancements.ad.tad"
+    }
+  },
+  "requirements": [
+    [
+      "eat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

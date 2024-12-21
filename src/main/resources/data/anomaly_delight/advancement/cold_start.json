@@ -1,0 +1,39 @@
+{
+  "parent": "anomaly_delight:try_and_die",
+  "criteria": {
+    "eat": {
+      "conditions": {
+        "item": {
+          "items": [
+            "anomaly_delight:starry_sky_white_flavor_railway_grilled_fish",
+            "anomaly_delight:long_awaited_century_soup",
+            "anomaly_delight:radish_cane_sea_breeze_sweet_soup",
+            "anomaly_delight:homestyle_canned_cheese_baked_rice",
+            "anomaly_delight:golden_cupcakes_with_banded_agate_chocolate",
+            "anomaly_delight:shanghai_sunrise_cocktail"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ad.cs.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "anomaly_delight:shanghai_sunrise_cocktail"
+    },
+    "title": {
+      "color": "#F4B084",
+      "translate": "advancements.ad.cs"
+    }
+  },
+  "requirements": [
+    [
+      "eat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

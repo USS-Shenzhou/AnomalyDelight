@@ -1,0 +1,35 @@
+{
+  "parent": "anomaly_delight:try_and_die",
+  "criteria": {
+    "eat": {
+      "conditions": {
+        "item": {
+          "items": [
+            "anomaly_delight:yourself",
+            "anomaly_delight:roasted_millennium_bug_with_binary_tree_wood"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.ad.data.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "anomaly_delight:roasted_millennium_bug_with_binary_tree_wood"
+    },
+    "title": {
+      "color": "#000099",
+      "translate": "advancements.ad.data"
+    }
+  },
+  "requirements": [
+    [
+      "eat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

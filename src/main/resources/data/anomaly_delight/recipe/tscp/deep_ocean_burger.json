@@ -1,0 +1,20 @@
+{
+  "type": "anomaly_delight:tscp",
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "minecraft:ink_sac"
+    },
+    {
+      "item": "minecraft:prismarine_shard"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "anomaly_delight:deep_ocean_burger"
+  }
+}

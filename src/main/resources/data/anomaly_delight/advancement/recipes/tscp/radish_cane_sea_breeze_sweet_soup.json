@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "anomaly_delight:tscp/radish_cane_sea_breeze_sweet_soup"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tscp": {
+      "conditions": {
+        "items": [
+          {
+            "items": "anomaly_delight:tscp"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tscp"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "anomaly_delight:tscp/radish_cane_sea_breeze_sweet_soup"
+    ]
+  }
+}
