@@ -65,6 +65,7 @@ public class GameEventListener {
     public static void BonemealEvent(BonemealEvent event){
         Player player = event.getPlayer();
         Level level = event.getLevel();
+        if (player == null) return;
         RandomTriggerManager.performRandomAction(player,level,InteractionHand.MAIN_HAND,null,null,"BonemealEvent");
     }
     @SubscribeEvent
