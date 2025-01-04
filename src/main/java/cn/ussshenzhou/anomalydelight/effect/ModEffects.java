@@ -21,5 +21,6 @@ public class ModEffects {
     public static final Supplier<MobEffect> GRAND_LIBRARY_ESSENCE_COFFEE = EFFECTS.register("grand_library_essence_coffee", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0xcc66ff));
     public static final Supplier<MobEffect> FRIED_ECHO_SHARDS_WITH_AGED_ROSE_SAUCE = EFFECTS.register("fried_echo_shards_with_aged_rose_sauce", () -> new MobEffect(MobEffectCategory.NEUTRAL, 0xff2e3b));
     public static final Supplier<MobEffect> WUTHERING_DEPTH = EFFECTS.register("wuthering_depth", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0xff2e3b));
+    public static final Supplier<MobEffect> HASOK = EFFECTS.register("hasok", () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0x000000));
 
 }

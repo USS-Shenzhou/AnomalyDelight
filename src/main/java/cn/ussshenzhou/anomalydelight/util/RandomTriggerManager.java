@@ -123,6 +123,9 @@ public class RandomTriggerManager {
 
     // 主方法，根据权重随机执行一个动作
     public static void performRandomAction(Player player, Level world, InteractionHand hand, @Nullable Entity target, @Nullable BlockHitResult blockHitResult, String eventKey) {
+        if (player == null) {
+            return;
+        }
         if (!world.isClientSide) {
             if (player.hasEffect((Holder<MobEffect>)ModEffects.RANDOM_VARIABLE_SOUP)) {
 

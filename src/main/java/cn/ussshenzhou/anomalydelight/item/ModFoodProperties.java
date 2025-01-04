@@ -115,8 +115,13 @@ public class ModFoodProperties {
 
     public static final FoodProperties SPINNING_SUSHI = new FoodProperties.Builder()
             .nutrition(2)
-            .saturationModifier(0.1f)
+            .saturationModifier(0.8f)
             .alwaysEdible()
             .effect(() -> new MobEffectInstance((Holder<MobEffect>)ModEffects.SPIN_EFFECT, 200, 0), 0.5F)
+            .build();
+
+    public static final FoodProperties HASOK = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationModifier(1)
             .build();
 }

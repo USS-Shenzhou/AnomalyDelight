@@ -46,7 +46,6 @@ authors="${mod_authors}" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 §l开源许可信息§r
-
 本模组受以下作品启发或由其演绎，依照CC BY-SA 3.0许可证获得许可：
 本模组的世界观来源于SCP基金会及其作者社群，https://scp-wiki-cn.wikidot.com/
 安布罗斯幻梦茶屋，作者@feitag，https://scp-wiki-cn.wikidot.com/oneiroi-food-guide-ambrose-dreams-teashop

@@ -6,6 +6,7 @@
   "refmap": "anomaly_delight.refmap.json",
   "mixins": [
     "EnchantmentMenuMixin",
+    "TridentItemMixin",
     "WardenMixin",
     "pose.PlayerEntityMixin"
   ],

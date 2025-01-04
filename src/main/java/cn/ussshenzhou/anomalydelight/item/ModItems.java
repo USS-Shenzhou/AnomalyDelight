@@ -69,11 +69,20 @@ public class ModItems {
                             .fireResistant()
             )
     );
+
+    @SuppressWarnings("unchecked")
     public static final Supplier<Item> HASOKFISH_SANDWICH = ITEMS.register("hasokfish_sandwich",
-            () -> new Item(
+            () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(16)
                             .fireResistant()
+                            .food(ModFoodProperties.HASOK),
+                    null,
+                    Component.translatable("item.ad.restaurant.hasoook")
+                            .withStyle(ChatFormatting.ITALIC)
+                            .withColor(0x555555),
+                    null,
+                    eater -> eater.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffects.HASOK, 300 * 20, 0, false, false, false))
             )
     );
 
@@ -83,10 +92,15 @@ public class ModItems {
             )
     );
     public static final Supplier<Item> SPINNING_SUSHI = ITEMS.register("spinning_sushi",
-            () -> new Item(
+            () -> new BaseAnomalyDelightMeal(
                     new Item.Properties()
                             .stacksTo(64)
-                            .food(ModFoodProperties.SPINNING_SUSHI)
+                            .fireResistant()
+                            .food(ModFoodProperties.SPINNING_SUSHI),
+                    null,
+                    Component.translatable("item.ad.restaurant.mafuyu")
+                            .withStyle(ChatFormatting.ITALIC)
+                            .withColor(0x64bce5)
             )
     );
 
