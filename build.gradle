@@ -33,6 +33,10 @@ repositories {
     }
 }
 
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 base {
     archivesName = mod_id
 }
